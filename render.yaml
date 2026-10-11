@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: shiha-blockcraft
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    plan: free
+    healthCheckPath: /
+    envVars:
+      - key: NODE_ENV
+        value: production
+# NOTE (Render free): no persistent disk and the service sleeps when idle
+# (~1 min wake-up on first visit). Blockcraft saves live in the player's
+# own browser (localStorage), so nothing is lost server-side. Demo perfect.

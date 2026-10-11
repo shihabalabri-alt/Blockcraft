@@ -1,0 +1,10 @@
+{
+  "name": "blockcraft",
+  "version": "1.0.0",
+  "description": "Blockcraft fan tribute - single-file static game",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "license": "UNLICENSED"
+}
