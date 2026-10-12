@@ -81,6 +81,21 @@ Weapons/armor/tools/food/potions/spawn-egg tabs were NOT faked in:
 this engine only supports placeable blocks, and inventing
 non-functional sword cubes would violate the no-fake-items rule.
 The existing inventory tabs + Search cover all 651 entries.
+FUTURE-ADDS POLICY: Lapis Lazuli must stay last - every new block
+goes BEFORE its line, and hardcoded IDs (lapis 216/217/227/651,
+flint 650, TNT 367, bedrock 11) never shift because the registry
+is append-only. Probes enforce this.
+
+ADDED 2026-10-12 (Flint and Steel + TNT, probe_boom.js 22/22):
+Flint and Steel (id 650, tool entry - right-click does not place
+it) + working TNT explosions (custom, NOT vanilla behavior in this
+engine): hold flint, right-click TNT -> radius-4 blast, bedrock
+immune, chained TNT with delay, burst particles, player knockback.
+No health system exists so there is no damage - knockback only.
+Mining/placing/other clicks run through untouched (probe-verified).
+Armor is still correctly absent: zero health/damage/equipment code
+exists in this peaceful builder, so armor would have no function;
+a wearable-cube would be a fake item per the checklist rules.
 
 This is an original fan tribute. Not affiliated with Mojang/Microsoft.
 Tell me CONTINUE + what is wrong/missing and I will add it next.
