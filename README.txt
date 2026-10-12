@@ -26,6 +26,11 @@ inventory under natural / plants / building / functional tabs.
 Save format untouched (new blocks append at end of registry).
 World size is 100x100 (set 2026-10-12, was 160x160). Old 160-size
 saved worlds will not line up - start a new world/seed.
+INFINITE WORLD since 2026-10-12: terrain streams forever like real
+Minecraft (seeded noise + per-chunk decorations, 9-chunk view,
+meshes build as you walk). Old fixed-size saves auto-migrate
+(player-built blocks carry over near origin). Spawn area terrain is
+identical to before - same seed math, same spawn.
 
 ADDED 2026-11-11 (ALL Minecraft blocks batch, probe_bc2.js ALL PASS):
 Source: bloxodes.com wiki, all 21 pages collected (529 items + 1,128
