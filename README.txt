@@ -69,6 +69,10 @@ real block (renamed to Wood years ago), "Rooted Moss" is unverified,
 "Knowledge Book" are not obtainable vanilla items, "Spawner" means
 Monster Spawner, "Redstone Block" = existing Block of Redstone,
 "Mangrove Sapling" is really called Mangrove Propagule (already in).
+"Light" renamed to its full MC Java name "Light Block" (same ID).
+Exhaustive 300-name sweep 2026-10-12: every remaining checklist
+block-name is either present or correctly excluded (item/system/
+entity/invalid) - only the Light rename resulted.
 LAPIS CORE (custom, NOT vanilla): blue Vault panel via the heart
 button (bottom-right) tracking lapis mined/placed (persists in your
 browser), custom milestones at 10/64/256/1024, plus an Enchanting
