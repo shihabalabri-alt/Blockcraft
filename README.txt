@@ -60,5 +60,23 @@ candles/carpets/panes/pots/torches/chains/bars/ladders (~470), all
 food, potions, spawn eggs, armor...), dev-only blocks (Jigsaw, Test,
 Structure Void), wiki dup "Block of Resin" (= existing Resin Block).
 
+ADDED 2026-10-12 (Item Master List batch, probe_lapis.js 16/16):
+Registry 648 -> 651. Ominous Vault (blue vault, glows), Tall
+Seagrass, and LAPIS LAZULI (gem block) as the LAST catalog entry.
+Checklist corrections applied, not blindly trusted: "Bark" is not a
+real block (renamed to Wood years ago), "Rooted Moss" is unverified,
+"Dripleaf" alone is not a block (only Small/Big), "Spear" and
+"Knowledge Book" are not obtainable vanilla items, "Spawner" means
+Monster Spawner, "Redstone Block" = existing Block of Redstone,
+"Mangrove Sapling" is really called Mangrove Propagule (already in).
+LAPIS CORE (custom, NOT vanilla): blue Vault panel via the heart
+button (bottom-right) tracking lapis mined/placed (persists in your
+browser), custom milestones at 10/64/256/1024, plus an Enchanting
+Journal explaining real lapis uses. No economy, no login needed.
+Weapons/armor/tools/food/potions/spawn-egg tabs were NOT faked in:
+this engine only supports placeable blocks, and inventing
+non-functional sword cubes would violate the no-fake-items rule.
+The existing inventory tabs + Search cover all 651 entries.
+
 This is an original fan tribute. Not affiliated with Mojang/Microsoft.
 Tell me CONTINUE + what is wrong/missing and I will add it next.
