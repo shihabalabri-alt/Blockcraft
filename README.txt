@@ -24,6 +24,8 @@ Soul Lantern (glows), Chorus Plant, Chorus Flower, End Rod (glows),
 Dragon Egg, Ender Chest, Beacon (glows). All appear in creative
 inventory under natural / plants / building / functional tabs.
 Save format untouched (new blocks append at end of registry).
+World size is 100x100 (set 2026-10-12, was 160x160). Old 160-size
+saved worlds will not line up - start a new world/seed.
 
 ADDED 2026-11-11 (ALL Minecraft blocks batch, probe_bc2.js ALL PASS):
 Source: bloxodes.com wiki, all 21 pages collected (529 items + 1,128
