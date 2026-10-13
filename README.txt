@@ -97,5 +97,13 @@ Armor is still correctly absent: zero health/damage/equipment code
 exists in this peaceful builder, so armor would have no function;
 a wearable-cube would be a fake item per the checklist rules.
 
+ADDED 2026-10-13 (Water Bucket + coords HUD, probe_boom 30/30):
+Water Bucket (id 651, tool entry like flint): hold it and
+right-click to pour water into the targeted air cell (no lava
+exists in this game, so no Lava Bucket; no pickup - creative
+pouring only, like real creative mode). Live coords + spawn-distance
+HUD top-center (updates twice a second, needs no compass
+conventions). Registry now 653, Lapis STILL last (652).
+
 This is an original fan tribute. Not affiliated with Mojang/Microsoft.
 Tell me CONTINUE + what is wrong/missing and I will add it next.
