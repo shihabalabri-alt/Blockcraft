@@ -105,5 +105,12 @@ pouring only, like real creative mode). Live coords + spawn-distance
 HUD top-center (updates twice a second, needs no compass
 conventions). Registry now 653, Lapis STILL last (652).
 
+ADDED 2026-10-14 (Note Blocks + Bell, probe_music.js 17/17):
+Right-click a Note Block to tune it up a semitone (F#3-G5 range,
+25 pitches, plays the new note) - pitches persist per position in
+your browser. Right-click the Bell to ring it. Sound is synthesized
+with WebAudio (the game exposes no tone API). Same MC tradeoff:
+clicking uses instead of placing against these blocks.
+
 This is an original fan tribute. Not affiliated with Mojang/Microsoft.
 Tell me CONTINUE + what is wrong/missing and I will add it next.
