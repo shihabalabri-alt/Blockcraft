@@ -112,5 +112,12 @@ your browser. Right-click the Bell to ring it. Sound is synthesized
 with WebAudio (the game exposes no tone API). Same MC tradeoff:
 clicking uses instead of placing against these blocks.
 
+ADDED 2026-10-14 (Living world, probe_grow.js 16/16): saplings
+grow into real trees on random ticks like Minecraft (oak, spruce,
+birch, azalea-to-oak; needs light + 7 air above; only shapes this
+engine has - other saplings never trigger, no fakes), and dirt
+turns to grass near grass with light. Tree cells persist as edits.
+Plant a sapling, wait ~a minute nearby. No registry change.
+
 This is an original fan tribute. Not affiliated with Mojang/Microsoft.
 Tell me CONTINUE + what is wrong/missing and I will add it next.
