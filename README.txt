@@ -126,5 +126,12 @@ log/stem/wood types within 2), mushrooms spread in the dark
 water freezes into ice in snowy biomes. Player-placed leaves also
 decay (no persistence flag in engine). No registry change.
 
+ADDED 2026-10-16 (Advancements + boom sound, probe_adv.js 22/22):
+Custom 🏆 achievements panel (bottom-left): place/mine counts,
+TNT booms, trees grown, notes tuned, ice frozen, distance records
+(500m Wanderer, 5000m Marathoner). All clearly labeled custom,
+persisted, no duplicates. TNT now booms audibly (synthesized
+noise burst; confirm by ear in-game). No registry change.
+
 This is an original fan tribute. Not affiliated with Mojang/Microsoft.
 Tell me CONTINUE + what is wrong/missing and I will add it next.
