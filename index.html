@@ -8816,6 +8816,7 @@ window.__tick=function(app){
     coordEl.textContent=txt;
   }catch(_){}
   try{window.__grow&&window.__grow(app);}catch(_){}
+  try{window.__decay&&window.__decay(app);}catch(_){}
 };
 }catch(_){}
 })();
@@ -8950,6 +8951,87 @@ window.__grow=function(app){
       if(gl<0.5)continue;
       if(Math.random()>0.25)continue;
       try{app.setBlock(gx,gty,gz,GRASS);}catch(_){}
+    }
+  }catch(_){}
+};
+}catch(_){}
+})();
+/* DECAY - custom glue for real vanilla behaviors (NOT vanilla code).
+   Leaves decay without nearby logs + mushrooms spread in the dark +
+   surface water freezes in snowy biomes, on slow ticks like real
+   Minecraft. Uses only public app methods. Player-placed leaves also
+   decay (engine tracks no persistence flag) - noted limitation.
+   Isolated; errors swallowed. */
+(function(){
+try{
+var LEAF={6:1,23:1,25:1,49:1,55:1,61:1,67:1,73:1,79:1,94:1,95:1,434:1,435:1,436:1};
+var LOG={5:1,22:1,24:1,33:1,34:1,35:1,37:1,38:1,39:1,41:1,42:1,43:1,45:1,46:1,47:1,48:1,51:1,52:1,53:1,54:1,57:1,58:1,59:1,60:1,63:1,64:1,65:1,66:1,69:1,70:1,71:1,72:1,75:1,76:1,77:1,78:1,81:1,82:1,83:1,84:1,86:1,87:1,88:1,89:1,197:1,429:1,430:1,431:1,432:1};
+var BROWN=408,RED=407,WATER=9,ICE=180,DIRT=2,STONE=3,GRASS=1,PODZOL=172,MYCEL=173,AIR=0;
+var SOIL={};SOIL[DIRT]=1;SOIL[GRASS]=1;SOIL[STONE]=1;SOIL[PODZOL]=1;SOIL[MYCEL]=1;
+var lastDecay=0;
+window.__decay=function(app){
+  try{
+    var now=Date.now();
+    if(now-lastDecay<6000)return;
+    lastDecay=now;
+    if(!app||!app.world||!app.player||!app.player.pos||typeof app.setBlock!=='function')return;
+    var p=app.player.pos,w=app.world;
+    var i,x,z,ty,b;
+    for(var k=0;k<12;k++){
+      x=Math.floor(p.x)+(Math.floor(Math.random()*65)-32);
+      z=Math.floor(p.z)+(Math.floor(Math.random()*65)-32);
+      try{ty=w.topY(x,z);}catch(_){continue;}
+      try{b=w.get(x,ty,z);}catch(_){continue;}
+      if(!LEAF[b])continue;
+      var found=false;
+      for(var dx=-2;dx<=2&&!found;dx++)for(var dy=-2;dy<=2&&!found;dy++)for(var dz=-2;dz<=2&&!found;dz++){
+        var c=0;try{c=w.get(x+dx,ty+dy,z+dz);}catch(_){continue;}
+        if(LOG[c])found=true;
+      }
+      if(found)continue;
+      if(Math.random()>0.3)continue;
+      try{app.setBlock(x,ty,z,AIR);}catch(_){}
+    }
+    for(var j=0;j<8;j++){
+      x=Math.floor(p.x)+(Math.floor(Math.random()*49)-24);
+      z=Math.floor(p.z)+(Math.floor(Math.random()*49)-24);
+      try{ty=w.topY(x,z);}catch(_){continue;}
+      try{b=w.get(x,ty,z);}catch(_){continue;}
+      if(b===WATER){
+        var above=0;try{above=w.get(x,ty+1,z);}catch(_){continue;}
+        if(above!==AIR)continue;
+        var bio=-1;try{bio=w.biomeAt(x,z);}catch(_){}
+        if(bio!==3)continue;
+        if(Math.random()>0.3)continue;
+        try{app.setBlock(x,ty,z,ICE);}catch(_){}
+        continue;
+      }
+      var sy=-1,mb=0;
+      for(var d2=-1;d2>=-9;d2--){
+        try{mb=w.get(x,ty+d2,z);}catch(_){break;}
+        if(mb===BROWN||mb===RED){sy=ty+d2;break;}
+        mb=0;
+      }
+      if(sy<0)continue;
+      var under=0;try{under=w.get(x,sy-1,z);}catch(_){continue;}
+      if(!SOIL[under])continue;
+      var li=1;try{li=w.sky(x,sy,z);}catch(_){}
+      if(li>=0.6)continue;
+      var n=0;
+      for(var qx=-4;qx<=4&&n<7;qx++)for(var qy=-1;qy<=1&&n<7;qy++)for(var qz=-4;qz<=4&&n<7;qz++){
+        var qb=0;try{qb=w.get(x+qx,sy+qy,z+qz);}catch(_){continue;}
+        if(qb===BROWN||qb===RED)n++;
+      }
+      if(n>=6)continue;
+      if(Math.random()>0.3)continue;
+      var tx=x+(Math.floor(Math.random()*7)-3),tz=z+(Math.floor(Math.random()*7)-3);
+      var tb=0;try{tb=w.get(tx,sy,tz);}catch(_){continue;}
+      if(tb!==AIR)continue;
+      var tu=0;try{tu=w.get(tx,sy-1,tz);}catch(_){continue;}
+      if(!SOIL[tu])continue;
+      var tl=1;try{tl=w.sky(tx,sy,tz);}catch(_){}
+      if(tl>=0.6)continue;
+      try{app.setBlock(tx,sy,tz,mb);}catch(_){}
     }
   }catch(_){}
 };

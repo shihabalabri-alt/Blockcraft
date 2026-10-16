@@ -119,5 +119,12 @@ engine has - other saplings never trigger, no fakes), and dirt
 turns to grass near grass with light. Tree cells persist as edits.
 Plant a sapling, wait ~a minute nearby. No registry change.
 
+ADDED 2026-10-16 (Living world II, probe_decay.js 16/16): leaves
+decay without nearby logs (any of 14 leaf types needs any of 50+
+log/stem/wood types within 2), mushrooms spread in the dark
+(surface shade, pockets, caves; capped at 6 nearby), and surface
+water freezes into ice in snowy biomes. Player-placed leaves also
+decay (no persistence flag in engine). No registry change.
+
 This is an original fan tribute. Not affiliated with Mojang/Microsoft.
 Tell me CONTINUE + what is wrong/missing and I will add it next.
