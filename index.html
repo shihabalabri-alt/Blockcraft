@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="application/json" id="capabilities">{"required":["storage"]}</script>
     <title>Blockcraft</title>
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#c8901a" />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Blockcraft" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <!-- artifact-input-sha256:2b3a30fcc1e0c33a40a58d2edc93bac2d8793063e3e53b950b1576923c7ff256 -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;700&amp;display=swap" />
     <style>html,body{height:100%}body{margin:0}#root{height:100dvh;overflow:auto}
@@ -9268,6 +9275,71 @@ function build(){
     }
   }catch(_){}
 }
+if(typeof document!=='undefined'&&document&&document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){try{build();}catch(_){}});
+else{try{build();}catch(_){}}
+}catch(_){}
+})();
+/* INSTALL - custom glue (NOT vanilla Minecraft). Makes the site an
+   installable app (PWA): registers the service worker for offline play,
+   captures the browser install prompt behind a ⬇ button, and always
+   offers a save-single-file copy. iOS has no install API - shows Add
+   to Home Screen instructions instead. Isolated; errors swallowed. */
+(function(){
+try{
+var deferred=null,panel=null,btn=null,open=false;
+function isIOS(){try{return /iphone|ipad|ipod/i.test(navigator.userAgent)&&!window.MSStream;}catch(_){return false;}}
+function isStandalone(){try{return (window.matchMedia&&window.matchMedia('(display-mode: standalone)').matches)||navigator.standalone===true;}catch(_){return false;}}
+window.__installState=function(){try{return{ios:isIOS(),standalone:isStandalone(),canPrompt:!!deferred};}catch(_){return{ios:false,standalone:false,canPrompt:false};}};
+function update(){try{if(btn)btn.textContent=isStandalone()?'✅':(deferred?'⬇️':'⬇️');if(open)fill();}catch(_){}}
+function fill(){
+  try{
+    if(!panel)return;
+    var h='<div style="font-size:15px;font-weight:bold;color:#ffd88a;margin-bottom:8px">INSTALL BLOCKCRAFT <span style="font-size:10px;color:#a88a4a">(custom)</span></div>';
+    if(isStandalone()){
+      h+='<div style="margin-bottom:8px">✅ Installed - running as an app. Game works offline.</div>';
+    }else if(isIOS()){
+      h+='<div style="margin-bottom:8px"><b>iPhone/iPad (Safari):</b><br>1. Tap the Share button <b>▲</b> (or ⬆️)<br>2. Tap <b>Add to Home Screen</b><br>3. Open Blockcraft from your home screen - works offline.</div>';
+    }else{
+      h+='<div style="margin-bottom:8px">'+(deferred?'<b>Blockcraft can be installed</b> - it gets its own icon on your PC/phone/tablet and runs fullscreen + offline.<br><br>':'')+'No install button? Use your browser menu → <b>Install app / Add to Home Screen</b>.</div>';
+      if(deferred)h+='<button id="inBtn" style="display:block;width:100%;background:#2a7a2a;color:#fff;border:none;border-radius:8px;padding:10px;cursor:pointer;font-size:14px;font-weight:bold;margin-bottom:8px">⬇️ Install now</button>';
+    }
+    h+='<a href="/index.html" download="Blockcraft.html" style="display:block;background:#8a5f14;color:#fff;border:none;border-radius:8px;padding:8px;text-align:center;cursor:pointer;text-decoration:none;font-size:12px">💾 Save game file (Blockcraft.html)</a>'
+      +'<div style="margin-top:6px;font-size:10px;color:#a88a4a">The saved file is the whole game in one HTML - double-click it to play offline on any device.</div>'
+      +'<button id="inClose" style="margin-top:8px;width:100%;background:#3a2a10;color:#ffe2a8;border:1px solid #c8901a;border-radius:8px;padding:8px;cursor:pointer">Close</button>';
+    panel.innerHTML=h;
+    var c=panel.querySelector('#inClose');
+    if(c&&c.addEventListener)c.addEventListener('click',function(){open=false;panel.style.display='none';});
+    var ib=panel.querySelector('#inBtn');
+    if(ib&&ib.addEventListener)ib.addEventListener('click',function(){
+      try{
+        if(!deferred)return;
+        deferred.prompt();
+        deferred.userChoice.then(function(){deferred=null;update();}).catch(function(){deferred=null;update();});
+      }catch(_){deferred=null;}
+    });
+  }catch(_){}
+}
+function toggle(){try{
+  if(!panel){build();return;}
+  open=!open;panel.style.display=open?'block':'none';if(open)fill();
+}catch(_){}}
+function build(){
+  try{
+    if(panel||!document||!document.body)return;
+    btn=document.createElement('button');
+    btn.textContent='⬇️';btn.title='Install Blockcraft (custom)';
+    btn.style.cssText='position:fixed;left:114px;bottom:14px;z-index:9999;width:44px;height:44px;font-size:20px;background:#3a2a10;color:#fff;border:2px solid #c8901a;border-radius:10px;cursor:pointer;';
+    btn.addEventListener('click',function(){toggle();});
+    document.body.appendChild(btn);
+    panel=document.createElement('div');
+    panel.style.cssText='position:fixed;left:14px;bottom:66px;z-index:9999;width:330px;background:#241a08;color:#ffe2a8;border:2px solid #c8901a;border-radius:12px;padding:12px;font-family:sans-serif;font-size:13px;display:none;';
+    document.body.appendChild(panel);
+    update();
+  }catch(_){}
+}
+try{window.addEventListener&&window.addEventListener('beforeinstallprompt',function(e){try{e.preventDefault();deferred=e;update();}catch(_){}});}catch(_){}
+try{window.addEventListener&&window.addEventListener('appinstalled',function(){try{deferred=null;update();}catch(_){}});}catch(_){}
+if(typeof navigator!=='undefined'&&navigator.serviceWorker){try{navigator.serviceWorker.register('/sw.js').catch(function(){});}catch(_){}}
 if(typeof document!=='undefined'&&document&&document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){try{build();}catch(_){}});
 else{try{build();}catch(_){}}
 }catch(_){}

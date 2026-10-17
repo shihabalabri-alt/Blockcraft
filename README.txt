@@ -145,5 +145,15 @@ signs, 16 banners, 17 beds, 16 candles, 18 carpets, 17 panes...
 engine renders full cubes only - no part-shapes possible), 38
 ours-only (naming variants + custom). No registry change.
 
+ADDED 2026-10-17 (Install app / PWA, probe_install.js 22/22):
+⬇️ button bottom-left: install Blockcraft as an app on any device
+(PC/Android/iPhone) - own icon, fullscreen, works OFFLINE after
+install (service worker cache). iOS uses Share > Add to Home
+Screen (no install API there). Also offers "Save game file"
+(single-file HTML copy playable from disk anywhere). New repo
+files: manifest.json, sw.js, icon-192.png, icon-512.png (hand-
+generated grass-block art); server.js serves them. No registry
+change - Lapis Lazuli stays last.
+
 This is an original fan tribute. Not affiliated with Mojang/Microsoft.
 Tell me CONTINUE + what is wrong/missing and I will add it next.
