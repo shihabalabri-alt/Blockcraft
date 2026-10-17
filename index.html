@@ -9582,6 +9582,7 @@ window.__cmdExec=function(app,raw){
   return out;
 };
 window.__cmdLog=function(t,ok){try{logPush(t,ok);}catch(_){}};
+window.__cmdOpen=function(){try{openIt('/');}catch(_){}};
 /* ---- command console UI (T or /) ---- */
 var open=false,buf='',hist=[],hi=-1,bar=null,logBox=null;
 try{var sh=localStorage.getItem('cmdHist:v1');if(sh){hist=JSON.parse(sh)||[];}}catch(_){hist=[];}
@@ -9854,6 +9855,53 @@ function buildPanel(){
     document.body.appendChild(t);
     window.__tagLayer=t;
     paint();
+  }catch(_){}
+}
+if(typeof document!=='undefined'&&document&&document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){try{build();}catch(_){}});
+else{try{build();}catch(_){}}
+}catch(_){}
+})();
+/* CONSOLE TAP BUTTON - custom feature (NOT vanilla Minecraft).
+   Phones/tablets have no T key, so this tap button opens the very
+   same console. Honest limits: typing still needs a real keyboard;
+   it refuses to open in menus/before entering a world. */
+(function(){
+try{
+var btn=null;
+function build(){
+  try{
+    if(btn||!document||!document.body)return;
+    btn=document.createElement('button');
+    btn.textContent='⌨️';
+    btn.title='Open command console (same as pressing T)';
+    btn.style.cssText='position:fixed;left:214px;bottom:14px;z-index:9999;width:44px;height:44px;font-size:17px;background:#3a2a10;color:#fff;border:2px solid #c8901a;border-radius:10px;cursor:pointer;';
+    btn.addEventListener('click',function(){
+      try{
+        var a=window.__app;
+        if(!a||a.mode!=='play'){try{window.__cmdLog&&window.__cmdLog('Enter a world first, then tap ⌨️ for the console.',true);}catch(_){}return;}
+        if(window.__cmdOpen)window.__cmdOpen();
+      }catch(_){}
+    });
+    document.body.appendChild(btn);
+  }catch(_){}
+}
+if(typeof document!=='undefined'&&document&&document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){try{build();}catch(_){}});
+else{try{build();}catch(_){}}
+}catch(_){}
+})();
+/* BUILD TAG - custom feature (NOT vanilla Minecraft). Small build
+   stamp visible on every screen so a device can be checked at a
+   glance for cache staleness ("which build am I actually running?"). */
+(function(){
+try{
+function build(){
+  try{
+    if(document.getElementById('cmdBuildTag')||!document||!document.body)return;
+    var d=document.createElement('div');
+    d.id='cmdBuildTag';
+    d.textContent='build 2026-10-17-3';
+    d.style.cssText='position:fixed;right:10px;bottom:8px;z-index:9995;font-family:sans-serif;font-size:10px;color:#ffd88a;opacity:.7;pointer-events:none;letter-spacing:.5px;';
+    document.body.appendChild(d);
   }catch(_){}
 }
 if(typeof document!=='undefined'&&document&&document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){try{build();}catch(_){}});
