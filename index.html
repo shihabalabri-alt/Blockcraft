@@ -9662,6 +9662,7 @@ function build(){
     bar.innerHTML='x';
     document.body.appendChild(bar);
     logBox=document.createElement('div');
+    logBox.id='cmdLogBox';
     logBox.style.cssText='position:fixed;left:14px;bottom:66px;z-index:9989;width:460px;max-width:80vw;font-family:sans-serif;display:flex;flex-direction:column;justify-content:flex-end;pointer-events:none';
     document.body.appendChild(logBox);
     paint();

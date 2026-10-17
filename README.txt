@@ -192,5 +192,21 @@ tags not 3D bodies (renderer access is a future batch), old edits
 don't backfill, creating a new world needs a reconnect, only one
 server (this site). No registry change.
 
+FIXED 2026-10-17 ("T and / not working" - root cause found and
+proven): the SERVICE WORKER cached the game file itself
+("blockcraft-v1", cache-first) with no version bump, so browsers -
+especially the installed PWA / phone - kept running the FIRST
+deploy's game forever and never saw new code. sw.js v2: game
+document is now NETWORK-FIRST (cache only as offline fallback),
+cache renamed blockcraft-v2, and the server sends no-cache for "/"
+so updates reach every device on reopen. Verified end-to-end with a
+REAL headless Chrome driven over DevTools (qbrowser.js, 13/13):
+boots menus, creates a world, PRESS T opens the console, typing
+lands in the buffer, /help prints, /setblock 2 70 2 stone actually
+changes the world, Esc closes, Connect joins multiplayer for real,
+post-SW reload serves the current build, zero page exceptions. If
+you still see old behavior: fully CLOSE the game/app and open it
+twice so the new service worker takes over.
+
 This is an original fan tribute. Not affiliated with Mojang/Microsoft.
 Tell me CONTINUE + what is wrong/missing and I will add it next.

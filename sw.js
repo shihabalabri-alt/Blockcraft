@@ -1,8 +1,9 @@
 // Blockcraft service worker - custom project file (NOT vanilla Minecraft).
-// Caches the game so an installed copy runs with no network. Cache-first
-// for same-origin GETs, network fallback, offline fallback to '/'.
-const CACHE = 'blockcraft-v1';
-const ASSETS = ['/', '/manifest.json', '/icon-192.png', '/icon-512.png'];
+// v2: the game document is NETWORK-FIRST (users get every new deploy
+// immediately whenever online; cache is only the offline fallback).
+// Install assets (manifest/icons) stay cache-first; offline fallback '/'.
+const CACHE = 'blockcraft-v2';
+const ASSETS = ['/manifest.json', '/icon-192.png', '/icon-512.png'];
 
 self.addEventListener('install', (e) => {
   e.waitUntil(
@@ -23,6 +24,24 @@ self.addEventListener('activate', (e) => {
 self.addEventListener('fetch', (e) => {
   const req = e.request;
   if (req.method !== 'GET') return;
+  let path = '';
+  try { path = new URL(req.url).pathname; } catch (_) {}
+  const isGame = req.mode === 'navigate' || path === '/' || path === '/index.html';
+  if (isGame) {
+    // Fresh game whenever the network allows; fall back to the cached copy offline.
+    e.respondWith(
+      fetch(req).then((res) => {
+        try {
+          if (res && res.ok && res.type === 'basic') {
+            const cp = res.clone();
+            caches.open(CACHE).then((c) => c.put(req, cp)).catch(() => {});
+          }
+        } catch (_) {}
+        return res;
+      }).catch(() => caches.match('/'))
+    );
+    return;
+  }
   e.respondWith(
     caches.match(req, { ignoreSearch: true }).then((hit) => {
       if (hit) return hit;
