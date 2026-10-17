@@ -163,5 +163,17 @@ you leave the ground downward by walking. Sneak-jumps, flying
 descend (Shift), swimming unaffected; explosions can still push
 you. No registry change.
 
+ADDED 2026-10-17 (Slash commands, probe_cmd.js 42/42):
+Press T or / in-game to open a command console (Enter runs,
+Escape cancels, Arrow keys = history, Tab completes, history
+saved). Working commands - each does a real engine action:
+/tp (/teleport), /setblock, /fill (max 32768), /clone, /give,
+/time set|add, /kill (= return to spawn; engine has no health),
+/spawnpoint, /seed, /locate biome, /fly, /say, /me, /help.
+Coordinates support ~ relative. Blocks by name/key/#id.
+Honestly absent (systems don't exist in this engine): mobs
+(/summon), items/xp/effects (/effect /xp /enchant), weather,
+/gamemode, command blocks. No registry change - Lapis stays last.
+
 This is an original fan tribute. Not affiliated with Mojang/Microsoft.
 Tell me CONTINUE + what is wrong/missing and I will add it next.
