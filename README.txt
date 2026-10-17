@@ -133,5 +133,17 @@ TNT booms, trees grown, notes tuned, ice frozen, distance records
 persisted, no duplicates. TNT now booms audibly (synthesized
 noise burst; confirm by ear in-game). No registry change.
 
+ADDED 2026-10-17 (Block catalog + vanilla diff, probe_ency.js 20/20):
+📖 button bottom-left opens a searchable catalog of ALL 653
+registered blocks (live engine registry: id, name, category,
+solid/plant/liquid/glow flags, placeability). Category dropdown,
+search by name/key/id. Also: vanilla-diff.txt in the repo compares
+our registry against all 1128 vanilla wiki blocks - 614 shared,
+514 vanilla blocks missing (grouped: 97 stairs, 101 slabs, 32
+walls, 27 fences, 22 doors, 22 trapdoors, 32 buttons/plates, 26
+signs, 16 banners, 17 beds, 16 candles, 18 carpets, 17 panes...
+engine renders full cubes only - no part-shapes possible), 38
+ours-only (naming variants + custom). No registry change.
+
 This is an original fan tribute. Not affiliated with Mojang/Microsoft.
 Tell me CONTINUE + what is wrong/missing and I will add it next.

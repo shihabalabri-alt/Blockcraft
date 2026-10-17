@@ -1,0 +1,609 @@
+BLOCKCRAFT vs VANILLA BLOCK DIFF
+Generated 2026-10-17 from scraped wiki data (1128 vanilla blocks).
+Our game: 653 registered blocks (651 placeable, engine-enforced full cubes).
+
+=== MISSING FROM OUR GAME: 514 vanilla blocks ===
+
+--- Stairs: 97 ---
+  Acacia Stairs
+  Andesite Stairs
+  Bamboo Mosaic Stairs
+  Bamboo Stairs
+  Birch Stairs
+  Black Concrete Stairs
+  Black Wool Stairs
+  Blackstone Stairs
+  Blue Concrete Stairs
+  Blue Wool Stairs
+  Brick Stairs
+  Brown Concrete Stairs
+  Brown Wool Stairs
+  Cherry Stairs
+  Cinnabar Brick Stairs
+  Cinnabar Stairs
+  Cobbled Deepslate Stairs
+  Cobblestone Stairs
+  Crimson Stairs
+  Cut Copper Stairs
+  Cyan Concrete Stairs
+  Cyan Wool Stairs
+  Dark Oak Stairs
+  Dark Prismarine Stairs
+  Deepslate Brick Stairs
+  Deepslate Tile Stairs
+  Diorite Stairs
+  End Stone Brick Stairs
+  Exposed Cut Copper Stairs
+  Granite Stairs
+  Gray Concrete Stairs
+  Gray Wool Stairs
+  Green Concrete Stairs
+  Green Wool Stairs
+  Jungle Stairs
+  Light Blue Concrete Stairs
+  Light Blue Wool Stairs
+  Light Gray Concrete Stairs
+  Light Gray Wool Stairs
+  Lime Concrete Stairs
+  Lime Wool Stairs
+  Magenta Concrete Stairs
+  Magenta Wool Stairs
+  Mangrove Stairs
+  Mossy Cobblestone Stairs
+  Mossy Stone Brick Stairs
+  Mud Brick Stairs
+  Nether Brick Stairs
+  Oak Stairs
+  Orange Concrete Stairs
+  Orange Wool Stairs
+  Oxidized Cut Copper Stairs
+  Pale Oak Stairs
+  Pink Concrete Stairs
+  Pink Wool Stairs
+  Polished Andesite Stairs
+  Polished Blackstone Brick Stairs
+  Polished Blackstone Stairs
+  Polished Cinnabar Stairs
+  Polished Deepslate Stairs
+  Polished Diorite Stairs
+  Polished Granite Stairs
+  Polished Sulfur Stairs
+  Polished Tuff Stairs
+  Poplar Stairs
+  Prismarine Brick Stairs
+  Prismarine Stairs
+  Purple Concrete Stairs
+  Purple Wool Stairs
+  Purpur Stairs
+  Quartz Stairs
+  Red Concrete Stairs
+  Red Nether Brick Stairs
+  Red Sandstone Stairs
+  Red Wool Stairs
+  Resin Brick Stairs
+  Sandstone Stairs
+  Smooth Quartz Stairs
+  Smooth Red Sandstone Stairs
+  Smooth Sandstone Stairs
+  Spruce Stairs
+  Stone Brick Stairs
+  Stone Stairs
+  Sulfur Brick Stairs
+  Sulfur Stairs
+  Tuff Brick Stairs
+  Tuff Stairs
+  Warped Stairs
+  Waxed Cut Copper Stairs
+  Waxed Exposed Cut Copper Stairs
+  Waxed Oxidized Cut Copper Stairs
+  Waxed Weathered Cut Copper Stairs
+  Weathered Cut Copper Stairs
+  White Concrete Stairs
+  White Wool Stairs
+  Yellow Concrete Stairs
+  Yellow Wool Stairs
+  (why: engine renders full cubes only - no part-shapes/multi-block)
+
+--- Slabs: 101 ---
+  Acacia Slab
+  Andesite Slab
+  Bamboo Mosaic Slab
+  Bamboo Slab
+  Birch Slab
+  Black Concrete Slab
+  Black Wool Slab
+  Blackstone Slab
+  Blue Concrete Slab
+  Blue Wool Slab
+  Brick Slab
+  Brown Concrete Slab
+  Brown Wool Slab
+  Cherry Slab
+  Cinnabar Brick Slab
+  Cinnabar Slab
+  Cobbled Deepslate Slab
+  Cobblestone Slab
+  Crimson Slab
+  Cut Copper Slab
+  Cut Red Sandstone Slab
+  Cut Sandstone Slab
+  Cyan Concrete Slab
+  Cyan Wool Slab
+  Dark Oak Slab
+  Dark Prismarine Slab
+  Deepslate Brick Slab
+  Deepslate Tile Slab
+  Diorite Slab
+  End Stone Brick Slab
+  Exposed Cut Copper Slab
+  Granite Slab
+  Gray Concrete Slab
+  Gray Wool Slab
+  Green Concrete Slab
+  Green Wool Slab
+  Jungle Slab
+  Light Blue Concrete Slab
+  Light Blue Wool Slab
+  Light Gray Concrete Slab
+  Light Gray Wool Slab
+  Lime Concrete Slab
+  Lime Wool Slab
+  Magenta Concrete Slab
+  Magenta Wool Slab
+  Mangrove Slab
+  Mossy Cobblestone Slab
+  Mossy Stone Brick Slab
+  Mud Brick Slab
+  Nether Brick Slab
+  Oak Slab
+  Orange Concrete Slab
+  Orange Wool Slab
+  Oxidized Cut Copper Slab
+  Pale Oak Slab
+  Petrified Oak Slab
+  Pink Concrete Slab
+  Pink Wool Slab
+  Polished Andesite Slab
+  Polished Blackstone Brick Slab
+  Polished Blackstone Slab
+  Polished Cinnabar Slab
+  Polished Deepslate Slab
+  Polished Diorite Slab
+  Polished Granite Slab
+  Polished Sulfur Slab
+  Polished Tuff Slab
+  Poplar Slab
+  Prismarine Brick Slab
+  Prismarine Slab
+  Purple Concrete Slab
+  Purple Wool Slab
+  Purpur Slab
+  Quartz Slab
+  Red Concrete Slab
+  Red Nether Brick Slab
+  Red Sandstone Slab
+  Red Wool Slab
+  Resin Brick Slab
+  Sandstone Slab
+  Smooth Quartz Slab
+  Smooth Red Sandstone Slab
+  Smooth Sandstone Slab
+  Smooth Stone Slab
+  Spruce Slab
+  Stone Brick Slab
+  Stone Slab
+  Sulfur Brick Slab
+  Sulfur Slab
+  Tuff Brick Slab
+  Tuff Slab
+  Warped Slab
+  Waxed Cut Copper Slab
+  Waxed Exposed Cut Copper Slab
+  Waxed Oxidized Cut Copper Slab
+  Waxed Weathered Cut Copper Slab
+  Weathered Cut Copper Slab
+  White Concrete Slab
+  White Wool Slab
+  Yellow Concrete Slab
+  Yellow Wool Slab
+  (why: engine renders full cubes only - no part-shapes/multi-block)
+
+--- Walls: 32 ---
+  Andesite Wall
+  Blackstone Wall
+  Brick Wall
+  Cinnabar Brick Wall
+  Cinnabar Wall
+  Cobbled Deepslate Wall
+  Cobblestone Wall
+  Deepslate Brick Wall
+  Deepslate Tile Wall
+  Diorite Wall
+  End Stone Brick Wall
+  Granite Wall
+  Mossy Cobblestone Wall
+  Mossy Stone Brick Wall
+  Mud Brick Wall
+  Nether Brick Wall
+  Polished Blackstone Brick Wall
+  Polished Blackstone Wall
+  Polished Cinnabar Wall
+  Polished Deepslate Wall
+  Polished Sulfur Wall
+  Polished Tuff Wall
+  Prismarine Wall
+  Red Nether Brick Wall
+  Red Sandstone Wall
+  Resin Brick Wall
+  Sandstone Wall
+  Stone Brick Wall
+  Sulfur Brick Wall
+  Sulfur Wall
+  Tuff Brick Wall
+  Tuff Wall
+  (why: engine renders full cubes only - no part-shapes/multi-block)
+
+--- Fences & gates: 27 ---
+  Acacia Fence
+  Acacia Fence Gate
+  Bamboo Fence
+  Bamboo Fence Gate
+  Birch Fence
+  Birch Fence Gate
+  Cherry Fence
+  Cherry Fence Gate
+  Crimson Fence
+  Crimson Fence Gate
+  Dark Oak Fence
+  Dark Oak Fence Gate
+  Jungle Fence
+  Jungle Fence Gate
+  Mangrove Fence
+  Mangrove Fence Gate
+  Nether Brick Fence
+  Oak Fence
+  Oak Fence Gate
+  Pale Oak Fence
+  Pale Oak Fence Gate
+  Poplar Fence
+  Poplar Fence Gate
+  Spruce Fence
+  Spruce Fence Gate
+  Warped Fence
+  Warped Fence Gate
+  (why: engine renders full cubes only - no part-shapes/multi-block)
+
+--- Doors: 22 ---
+  Acacia Door
+  Bamboo Door
+  Birch Door
+  Cherry Door
+  Copper Door
+  Crimson Door
+  Dark Oak Door
+  Exposed Copper Door
+  Iron Door
+  Jungle Door
+  Mangrove Door
+  Oak Door
+  Oxidized Copper Door
+  Pale Oak Door
+  Poplar Door
+  Spruce Door
+  Warped Door
+  Waxed Copper Door
+  Waxed Exposed Copper Door
+  Waxed Oxidized Copper Door
+  Waxed Weathered Copper Door
+  Weathered Copper Door
+  (why: engine renders full cubes only - no part-shapes/multi-block)
+
+--- Trapdoors: 22 ---
+  Acacia Trapdoor
+  Bamboo Trapdoor
+  Birch Trapdoor
+  Cherry Trapdoor
+  Copper Trapdoor
+  Crimson Trapdoor
+  Dark Oak Trapdoor
+  Exposed Copper Trapdoor
+  Iron Trapdoor
+  Jungle Trapdoor
+  Mangrove Trapdoor
+  Oak Trapdoor
+  Oxidized Copper Trapdoor
+  Pale Oak Trapdoor
+  Poplar Trapdoor
+  Spruce Trapdoor
+  Warped Trapdoor
+  Waxed Copper Trapdoor
+  Waxed Exposed Copper Trapdoor
+  Waxed Oxidized Copper Trapdoor
+  Waxed Weathered Copper Trapdoor
+  Weathered Copper Trapdoor
+  (why: engine renders full cubes only - no part-shapes/multi-block)
+
+--- Buttons & pressure plates: 32 ---
+  Acacia Button
+  Acacia Pressure Plate
+  Bamboo Button
+  Bamboo Pressure Plate
+  Birch Button
+  Birch Pressure Plate
+  Cherry Button
+  Cherry Pressure Plate
+  Crimson Button
+  Crimson Pressure Plate
+  Dark Oak Button
+  Dark Oak Pressure Plate
+  Heavy Weighted Pressure Plate
+  Jungle Button
+  Jungle Pressure Plate
+  Light Weighted Pressure Plate
+  Mangrove Button
+  Mangrove Pressure Plate
+  Oak Button
+  Oak Pressure Plate
+  Pale Oak Button
+  Pale Oak Pressure Plate
+  Polished Blackstone Button
+  Polished Blackstone Pressure Plate
+  Poplar Button
+  Poplar Pressure Plate
+  Spruce Button
+  Spruce Pressure Plate
+  Stone Button
+  Stone Pressure Plate
+  Warped Button
+  Warped Pressure Plate
+  (why: engine renders full cubes only - no part-shapes/multi-block)
+
+--- Signs & hanging signs: 26 ---
+  Acacia Hanging Sign
+  Acacia Sign
+  Bamboo Hanging Sign
+  Bamboo Sign
+  Birch Hanging Sign
+  Birch Sign
+  Cherry Hanging Sign
+  Cherry Sign
+  Crimson Hanging Sign
+  Crimson Sign
+  Dark Oak Hanging Sign
+  Dark Oak Sign
+  Jungle Hanging Sign
+  Jungle Sign
+  Mangrove Hanging Sign
+  Mangrove Sign
+  Oak Hanging Sign
+  Oak Sign
+  Pale Oak Hanging Sign
+  Pale Oak Sign
+  Poplar Hanging Sign
+  Poplar Sign
+  Spruce Hanging Sign
+  Spruce Sign
+  Warped Hanging Sign
+  Warped Sign
+  (why: engine renders full cubes only - no part-shapes/multi-block)
+
+--- Banners: 16 ---
+  Black Banner
+  Blue Banner
+  Brown Banner
+  Cyan Banner
+  Gray Banner
+  Green Banner
+  Light Blue Banner
+  Light Gray Banner
+  Lime Banner
+  Magenta Banner
+  Orange Banner
+  Pink Banner
+  Purple Banner
+  Red Banner
+  White Banner
+  Yellow Banner
+  (why: engine renders full cubes only - no part-shapes/multi-block)
+
+--- Beds: 17 ---
+  Black Bed
+  Blue Bed
+  Brown Bed
+  Cyan Bed
+  Gray Bed
+  Green Bed
+  Light Blue Bed
+  Light Gray Bed
+  Lime Bed
+  Magenta Bed
+  Orange Bed
+  Pink Bed
+  Purple Bed
+  Red Bed
+  Straw Bed
+  White Bed
+  Yellow Bed
+  (why: engine renders full cubes only - no part-shapes/multi-block)
+
+--- Candles: 16 ---
+  Black Candle
+  Blue Candle
+  Brown Candle
+  Cyan Candle
+  Gray Candle
+  Green Candle
+  Light Blue Candle
+  Light Gray Candle
+  Lime Candle
+  Magenta Candle
+  Orange Candle
+  Pink Candle
+  Purple Candle
+  Red Candle
+  White Candle
+  Yellow Candle
+  (why: engine renders full cubes only - no part-shapes/multi-block)
+
+--- Carpets: 18 ---
+  Black Carpet
+  Blue Carpet
+  Brown Carpet
+  Cyan Carpet
+  Gray Carpet
+  Green Carpet
+  Light Blue Carpet
+  Light Gray Carpet
+  Lime Carpet
+  Magenta Carpet
+  Moss Carpet
+  Orange Carpet
+  Pale Moss Carpet
+  Pink Carpet
+  Purple Carpet
+  Red Carpet
+  White Carpet
+  Yellow Carpet
+  (why: engine renders full cubes only - no part-shapes/multi-block)
+
+--- Glass panes: 17 ---
+  Black Stained Glass Pane
+  Blue Stained Glass Pane
+  Brown Stained Glass Pane
+  Cyan Stained Glass Pane
+  Glass Pane
+  Gray Stained Glass Pane
+  Green Stained Glass Pane
+  Light Blue Stained Glass Pane
+  Light Gray Stained Glass Pane
+  Lime Stained Glass Pane
+  Magenta Stained Glass Pane
+  Orange Stained Glass Pane
+  Pink Stained Glass Pane
+  Purple Stained Glass Pane
+  Red Stained Glass Pane
+  White Stained Glass Pane
+  Yellow Stained Glass Pane
+  (why: engine renders full cubes only - no part-shapes/multi-block)
+
+--- Rails: 3 ---
+  Activator Rail
+  Detector Rail
+  Powered Rail
+  (why: engine renders full cubes only - no part-shapes/multi-block)
+
+--- Other (engine limit cases: complex geometry / items-as-blocks / entities): 68 ---
+  Block of Amethyst
+  Block of Bamboo
+  Block of Coal
+  Block of Copper
+  Block of Diamond
+  Block of Emerald
+  Block of Gold
+  Block of Iron
+  Block of Lapis Lazuli
+  Block of Netherite
+  Block of Quartz
+  Block of Raw Copper
+  Block of Raw Gold
+  Block of Raw Iron
+  Block of Redstone
+  Block of Stripped Bamboo
+  Candle
+  Copper Bars
+  Copper Chain
+  Copper Torch
+  Decorated Pot
+  Deepslate Lapis Lazuli Ore
+  Exposed Copper Bars
+  Exposed Copper Chain
+  Exposed Lightning Rod
+  Flower Pot
+  Hay Bale
+  Iron Bars
+  Iron Chain
+  Jigsaw Block
+  Ladder
+  Lapis Lazuli Ore
+  Lever
+  Light
+  Lightning Rod
+  Monster Spawner
+  Oxidized Copper Bars
+  Oxidized Copper Chain
+  Oxidized Lightning Rod
+  Rail
+  Redstone Comparator
+  Redstone Repeater
+  Redstone Torch
+  Smooth Quartz Block
+  Snow
+  Soul Torch
+  Structure Void
+  Test Block
+  Test Instance Block
+  Torch
+  Tripwire Hook
+  Vines
+  Waxed Block of Copper
+  Waxed Copper Bars
+  Waxed Copper Chain
+  Waxed Exposed Copper Bars
+  Waxed Exposed Copper Chain
+  Waxed Exposed Lightning Rod
+  Waxed Lightning Rod
+  Waxed Oxidized Copper Bars
+  Waxed Oxidized Copper Chain
+  Waxed Oxidized Lightning Rod
+  Waxed Weathered Copper Bars
+  Waxed Weathered Copper Chain
+  Waxed Weathered Lightning Rod
+  Weathered Copper Bars
+  Weathered Copper Chain
+  Weathered Lightning Rod
+
+=== PRESENT IN BOTH: 614 ===
+
+=== OURS-ONLY (custom / renamed / wiki-named differently): 38 ===
+  #0 Air [undefined]
+  #9 Water [null]
+  #18 Snowy Grass Block [natural]
+  #92 Block of Bamboo [building]
+  #93 Block of Stripped Bamboo [building]
+  #143 Block of Quartz [building]
+  #147 Smooth Quartz Block [building]
+  #165 Block of Amethyst [natural]
+  #183 Powder Snow [natural]
+  #202 Hay Bale [natural]
+  #216 Lapis Lazuli Ore [natural]
+  #217 Deepslate Lapis Lazuli Ore [natural]
+  #223 Block of Coal [building]
+  #224 Block of Iron [building]
+  #225 Block of Gold [building]
+  #226 Block of Redstone [building]
+  #227 Block of Lapis Lazuli [building]
+  #228 Block of Emerald [building]
+  #229 Block of Diamond [building]
+  #230 Block of Netherite [building]
+  #231 Block of Raw Iron [building]
+  #232 Block of Raw Copper [building]
+  #233 Block of Raw Gold [building]
+  #234 Block of Copper [building]
+  #366 Lit Redstone Lamp [functional]
+  #377 Monster Spawner [functional]
+  #415 Sweet Berry Bush [plants]
+  #450 Waxed Block of Copper [building]
+  #529 Redstone Comparator [functional]
+  #530 Redstone Repeater [functional]
+  #575 Vines [plants]
+  #586 Glow Berries [plants]
+  #588 Cave Vines [plants]
+  #648 Ominous Vault [functional]
+  #649 Tall Seagrass [plants]
+  #650 Flint and Steel [functional]
+  #651 Water Bucket [functional]
+  #652 Lapis Lazuli [colored]
+
+=== VANILLA ITEMS: 529 total - cannot be placeable cubes in this engine
+(no item entities / held items / equipment / brewing). Tools we adapted: Flint and
+Steel + Water Bucket exist as engine-real tools; all other vanilla items are absent.
