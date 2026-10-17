@@ -155,5 +155,13 @@ files: manifest.json, sw.js, icon-192.png, icon-512.png (hand-
 generated grass-block art); server.js serves them. No registry
 change - Lapis Lazuli stays last.
 
+ADDED 2026-10-17 (Sneak edge hold, probe_sneak.js 18/18):
+Holding Shift at an edge (cave lip, cliff, mine hole) stops you
+from walking off - exactly like real Minecraft sneak. Physics
+hooks: position remembered while sneak+grounded; snapped back if
+you leave the ground downward by walking. Sneak-jumps, flying
+descend (Shift), swimming unaffected; explosions can still push
+you. No registry change.
+
 This is an original fan tribute. Not affiliated with Mojang/Microsoft.
 Tell me CONTINUE + what is wrong/missing and I will add it next.
