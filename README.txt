@@ -175,5 +175,22 @@ Honestly absent (systems don't exist in this engine): mobs
 (/summon), items/xp/effects (/effect /xp /enchant), weather,
 /gamemode, command blocks. No registry change - Lapis stays last.
 
+CHANGED 2026-10-17 (probe_mp.js 33/33): T and / now behave
+identically - both open the console pre-filled with "/", so it is
+always a command prompt (chat text = /say or /me). Hint line shows
+the keys under the input.
+
+ADDED 2026-10-17 (Multiplayer MVP, probe_mp.js 33/33):
+🌐 button: connect to a REAL server relay (server.js now runs a
+dependency-free RFC6455 WebSocket on the same port, verified here
+with two live socket clients). Same link + same world seed = same
+room: your block edits sync live both ways (batched), positions
+broadcast at 10Hz, /say chats to the room, friends appear as
+camera-projected name tags with distance. Player list shown;
+disconnect broadcasts a leave notice. MVP limits, honestly: name
+tags not 3D bodies (renderer access is a future batch), old edits
+don't backfill, creating a new world needs a reconnect, only one
+server (this site). No registry change.
+
 This is an original fan tribute. Not affiliated with Mojang/Microsoft.
 Tell me CONTINUE + what is wrong/missing and I will add it next.
