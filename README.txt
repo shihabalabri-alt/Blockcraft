@@ -173,7 +173,6 @@ saved). Working commands - each does a real engine action:
 Coordinates support ~ relative. Blocks by name/key/#id.
 Honestly absent (systems don't exist in this engine): mobs
 (/summon), items/xp/effects (/effect /xp /enchant), weather,
-/gamemode, command blocks. No registry change - Lapis stays last.
 
 CHANGED 2026-10-17 (probe_mp.js 33/33): T and / now behave
 identically - both open the console pre-filled with "/", so it is
@@ -207,6 +206,19 @@ changes the world, Esc closes, Connect joins multiplayer for real,
 post-SW reload serves the current build, zero page exceptions. If
 you still see old behavior: fully CLOSE the game/app and open it
 twice so the new service worker takes over.
+
+ADDED 2026-10-19 (Multiplayer Part 2 - 3D avatars, probe_mp 40/40):
+Other players are now BLOCKY FIGURES in your world, built from real
+engine meshes at the setHand() anchor (this.handMat + buildItem
+geometry + scene): dirt torso, name-hashed head (oak log / lapis /
+TNT / ice / mushroom-brown), oak-log legs. They snap-follow the
+10Hz position feed and are removed when a player leaves or you
+disconnect. Name tags keep floating above them with distance.
+Honest limits: bodies snap (no walk animation), no rotation sync,
+still no backfill. Verified in real Chrome live (qbrowser 14/14,
+now with the tap-console button visible in menus). Build stamp
+moved to 2026-10-19-1 so you can confirm your device got this
+build. No registry change - Lapis stays last.
 
 This is an original fan tribute. Not affiliated with Mojang/Microsoft.
 Tell me CONTINUE + what is wrong/missing and I will add it next.
