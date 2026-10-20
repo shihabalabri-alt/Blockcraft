@@ -1,6 +1,9 @@
 BLOCKCRAFT (fan tribute, single file)
 =====================================
-Double-click index.html to play. No install needed.
+RUNNING: double-click start.bat, or run "npm start" (node server.js) and
+open http://localhost:3000. The small local server is needed so the real
+textures, font and sounds under /assets/ load; opening index.html directly
+still boots the engine but falls back to procedural textures and no audio.
 Internet needed once for the Monocraft pixel font (game runs fine offline after that).
 
 This build is the downloaded Blockcraft artifact (React single-file export,
