@@ -220,5 +220,18 @@ now with the tap-console button visible in menus). Build stamp
 moved to 2026-10-19-1 so you can confirm your device got this
 build. No registry change - Lapis stays last.
 
+ADDED 2026-10-20 (Lapis family, by request - probe_lapis 19/19):
+Five NEW CUSTOM lapis blocks (clearly custom - these are NOT vanilla
+Minecraft blocks): Chiseled Lapis (652), Lapis Pillar (653), Lapis
+Lamp (654, actually emits light), Lapis Lattice (655), Lapis Tiles
+(656). All use real engine texture generators and are placeable,
+giveable and catalogued automatically. The Lapis Lazuli gem moved to
+id 657 and REMAINS THE LAST REGISTRY ENTRY (LAPIS LAZULI LAST rule).
+Lapis Core's gem id is now dynamic (reads the last registry entry)
+so future inserts can't desync it. Flint/Water Bucket keep 650/651.
+Verified in a real Chrome: /setblock 3 72 3 lapis_lamp by NAME
+places id 654 with glow=true, the five names register in order and
+the gem is still last; zero page exceptions (textures render).
+
 This is an original fan tribute. Not affiliated with Mojang/Microsoft.
 Tell me CONTINUE + what is wrong/missing and I will add it next.

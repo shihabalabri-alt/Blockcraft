@@ -607,3 +607,5 @@ Our game: 653 registered blocks (651 placeable, engine-enforced full cubes).
 === VANILLA ITEMS: 529 total - cannot be placeable cubes in this engine
 (no item entities / held items / equipment / brewing). Tools we adapted: Flint and
 Steel + Water Bucket exist as engine-real tools; all other vanilla items are absent.
+
+Note 2026-10-20: +5 CUSTOM (non-vanilla) lapis-family blocks added by request: Chiseled Lapis, Lapis Pillar, Lapis Lamp (glows), Lapis Lattice, Lapis Tiles. They are ours-only, so the ours-only count above is now 43.
