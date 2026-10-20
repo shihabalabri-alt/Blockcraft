@@ -2,8 +2,17 @@
 // v2: the game document is NETWORK-FIRST (users get every new deploy
 // immediately whenever online; cache is only the offline fallback).
 // Install assets (manifest/icons) stay cache-first; offline fallback '/'.
-const CACHE = 'blockcraft-v2';
-const ASSETS = ['/manifest.json', '/icon-192.png', '/icon-512.png'];
+const CACHE = 'blockcraft-v3';
+const ASSETS = [
+  '/manifest.json', '/icon-192.png', '/icon-512.png',
+  '/assets/fonts/Monocraft.ttf',
+  '/assets/icons/trophy.png', '/assets/icons/menuGrid.png',
+  '/assets/icons/multiplayer.png', '/assets/icons/barsHorizontal.png',
+  '/assets/icons/audioOn.png', '/assets/icons/audioOff.png',
+  '/assets/audio/place.ogg', '/assets/audio/break.ogg',
+  '/assets/audio/step1.ogg', '/assets/audio/step2.ogg',
+  '/assets/audio/boom.ogg', '/assets/audio/click.ogg',
+];
 
 self.addEventListener('install', (e) => {
   e.waitUntil(

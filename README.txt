@@ -233,5 +233,39 @@ Verified in a real Chrome: /setblock 3 72 3 lapis_lamp by NAME
 places id 654 with glow=true, the five names register in order and
 the gem is still last; zero page exceptions (textures render).
 
+ADDED 2026-10-20 (free asset pack - probe_assets 44/44, browser 23/23):
+Real third-party free assets, downloaded and INTEGRATED (not just
+listed):
+- Kenney CC0 sound effects (assets/audio/): block place, block break,
+  TNT explosion, footsteps while walking, button clicks. Wired to the
+  real game events through the existing hooks. Verified in a real
+  Chrome: 2 places + 1 break produced 3 actually-started sounds.
+- Kenney CC0 icons (assets/icons/): the achievements, block catalog,
+  multiplayer and console buttons now use real PNG icons (the muted
+  speaker icon is the new sound on/off toggle, bottom bar next to the
+  console button; choice persists). All four images loaded in-browser
+  (naturalWidth 100).
+- Monocraft pixel font (SIL OFL, assets/fonts/): applied to the
+  custom panels and HUD; the browser reported it loaded.
+- server.js now serves /assets/ only (path-traversal blocked);
+  sw.js v3 precaches the assets for offline use. Licenses and credits
+  ship in assets/LICENSES.txt plus assets/licenses/*.
+
+Starter template: evaluated and deliberately NOT swapped in. This is a
+working single-file React+three.js voxel engine with its own infinite
+chunked world, 653-entry block registry, multiplayer relay, commands
+and PWA. Replacing it with a generic voxel template would destroy those
+systems, so only compatible asset files were imported.
+
+NOT added (engine has no system for them - honest list):
+- mob/animal models, skins, animations (game has no mob system)
+- player skin on a first-person body (no player body mesh in first
+  person; multiplayer puppets stay engine block-textured)
+- armor, swords, bows, shields, hold animations (no equipment/combat)
+- external block texture pack (engine rasterizes its own 16x16 atlas
+  from 653 procedural textures; a mixed pack would clash visually)
+- crafting icons / inventory icons (no crafting, no item system)
+- trees/buildings models (terrain is generated as real blocks)
+
 This is an original fan tribute. Not affiliated with Mojang/Microsoft.
 Tell me CONTINUE + what is wrong/missing and I will add it next.

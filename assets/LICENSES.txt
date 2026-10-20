@@ -1,0 +1,22 @@
+THIRD-PARTY ASSETS USED BY BLOCKCRAFT
+=====================================
+
+1) Kenney audio + icons (CC0 1.0 Universal / public domain)
+   Source: https://kenney.nl
+   Packs used:
+   - Impact Sounds  -> place.ogg, break.ogg, step1.ogg, step2.ogg
+   - Sci-Fi Sounds  -> boom.ogg
+   - UI Audio       -> click.ogg
+   - Game Icons     -> trophy.png, menuGrid.png, multiplayer.png,
+                       barsHorizontal.png, audioOn.png, audioOff.png
+   License text: assets/licenses/kenney-*.txt
+   CC0 requires no attribution; credit is given anyway.
+
+2) Monocraft font (SIL Open Font License 1.1)
+   Source: https://github.com/IdreesInc/Monocraft
+   File: assets/fonts/Monocraft.ttf
+   License text: assets/licenses/Monocraft-OFL.txt
+
+No paid, ripped or Minecraft-copyrighted assets are included.
+All block textures and most sounds in the game are still generated
+procedurally by the engine's own code.

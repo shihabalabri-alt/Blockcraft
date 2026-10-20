@@ -8783,6 +8783,7 @@ function boom(app,x,y,z,depth){
   try{
     if(depth>MAXDEPTH)return;
     boomSound();
+    try{window.__boomFx&&window.__boomFx(x,y,z);}catch(_){}
     try{window.__advEv&&window.__advEv('boom');}catch(_){}
     try{app.setBlock(x,y,z,AIR);}catch(_){}
     var list=cells(app,x,y,z),chain=[];
@@ -9964,13 +9965,168 @@ function build(){
     if(document.getElementById('cmdBuildTag')||!document||!document.body)return;
     var d=document.createElement('div');
     d.id='cmdBuildTag';
-    d.textContent='build 2026-10-20-1';
+    d.textContent='build 2026-10-20-2';
     d.style.cssText='position:fixed;right:10px;bottom:8px;z-index:9995;font-family:sans-serif;font-size:10px;color:#ffd88a;opacity:.7;pointer-events:none;letter-spacing:.5px;';
     document.body.appendChild(d);
   }catch(_){}
 }
 if(typeof document!=='undefined'&&document&&document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){try{build();}catch(_){}});
 else{try{build();}catch(_){}}
+}catch(_){}
+})();
+/* FREE ASSET PACK - custom glue (NOT vanilla Minecraft). Uses real
+   third-party free assets: Kenney CC0 sound effects and icons, and the
+   Monocraft pixel font (SIL OFL). Sounds are wired to real events:
+   block placed, block broken, TNT explosion, footsteps, button clicks.
+   A mute toggle (speaker icon, bottom bar) persists in localStorage.
+   Every failure is swallowed so missing assets can never break play. */
+(function(){
+try{
+if(typeof window==='undefined'||typeof document==='undefined')return;
+var A='/assets/audio/',I='/assets/icons/';
+var muted=false;try{muted=localStorage.getItem('bcMuted')==='1';}catch(_){}
+var sfx={};
+var state={plays:0,started:0,errors:0};
+var DEFS={place:'place.ogg',break:'break.ogg',boom:'boom.ogg',click:'click.ogg',step1:'step1.ogg',step2:'step2.ogg'};
+function mk(n,f){
+  try{
+    var a=new Audio(A+f);
+    a.preload='auto';
+    a.addEventListener('error',function(){state.errors++;});
+    sfx[n]=a;
+  }catch(_){}
+}
+for(var k in DEFS)mk(k,DEFS[k]);
+function play(n,vol){
+  try{
+    if(muted)return;
+    var a=sfx[n];
+    if(!a)return;
+    var c=a.cloneNode(true);
+    c.volume=(vol==null?0.3:vol);
+    c.addEventListener('playing',function(){state.started++;});
+    var p=c.play();
+    if(p&&p.catch)p.catch(function(){});
+    state.plays++;
+  }catch(_){}
+}
+window.__sfx=play;
+window.__sfxMute=function(v){
+  try{
+    muted=!!v;
+    try{localStorage.setItem('bcMuted',muted?'1':'0');}catch(_){}
+    if(mbtn&&mbtn._im)mbtn._im.src=I+(muted?'audioOff.png':'audioOn.png');
+  }catch(_){}
+};
+window.__sfxState=function(){return {plays:state.plays,started:state.started,errors:state.errors,muted:muted};};
+window.__assetDiag=function(){
+  var imgs=[];
+  try{
+    var bs=document.querySelectorAll('button[data-bc-icon] img');
+    for(var i=0;i<bs.length;i++)imgs.push({src:bs[i].getAttribute('src'),w:bs[i].naturalWidth});
+  }catch(_){}
+  var font=false;
+  try{font=!!(document.fonts&&document.fonts.check&&document.fonts.check('12px Monocraft'));}catch(_){}
+  return {plays:state.plays,started:state.started,errors:state.errors,muted:muted,icons:imgs,fontReady:font,audio:Object.keys(sfx)};
+};
+var lastBreak=0,lastBoom=0,prevStats=window.__stats;
+window.__stats=function(next,prev){
+  try{if(prevStats)prevStats(next,prev);}catch(_){}
+  try{
+    var t=Date.now();
+    if(prev===0&&next!==0){play('place',0.3);}
+    else if(prev!==0&&next===0){
+      if(t-lastBoom<450)return;
+      if(t-lastBreak>55){lastBreak=t;play('break',0.28);}
+    }
+  }catch(_){}
+};
+window.__boomFx=function(){lastBoom=Date.now();play('boom',0.5);};
+var prevTick=window.__tick,lastPx=null,lastPz=null,lastStep=0;
+window.__tick=function(app){
+  try{if(prevTick)prevTick(app);}catch(_){}
+  try{
+    if(muted||!app||!app.player||!app.player.pos)return;
+    var p=app.player.pos,t=Date.now();
+    if(lastPx==null){lastPx=p.x;lastPz=p.z;return;}
+    var dx=p.x-lastPx,dz=p.z-lastPz,d=Math.sqrt(dx*dx+dz*dz);
+    if(d>2.5){lastPx=p.x;lastPz=p.z;lastStep=t;return;}
+    if(d>0.22){
+      lastPx=p.x;lastPz=p.z;
+      if(t-lastStep>330){lastStep=t;play(((state.started%2)?'step1':'step2'),0.13);}
+    }
+  }catch(_){}
+};
+var ICONS={
+  'Achievements (custom project feature)':'trophy.png',
+  'Block catalog (custom reference UI)':'menuGrid.png',
+  'Multiplayer (custom - real relay)':'multiplayer.png',
+  'Open command console (same as pressing T)':'barsHorizontal.png'
+};
+function icons(){
+  try{
+    var bs=document.querySelectorAll('button[title]');
+    for(var i=0;i<bs.length;i++){
+      var b=bs[i],f=ICONS[b.getAttribute('title')];
+      if(!f||b.getAttribute('data-bc-icon'))continue;
+      b.setAttribute('data-bc-icon',f);
+      b.textContent='';
+      var im=document.createElement('img');
+      im.src=I+f;im.alt='';im.width=26;im.height=26;
+      im.style.cssText='width:26px;height:26px;display:block;margin:0 auto;image-rendering:pixelated;pointer-events:none;';
+      b.appendChild(im);
+    }
+  }catch(_){}
+}
+var mbtn=null;
+function muteBtn(){
+  try{
+    if(mbtn||!document.body)return;
+    mbtn=document.createElement('button');
+    mbtn.title='Sound on/off (assets: Kenney CC0)';
+    mbtn.style.cssText='position:fixed;left:264px;bottom:14px;z-index:9999;width:44px;height:44px;background:#3a2a10;border:2px solid #c8901a;border-radius:10px;cursor:pointer;display:flex;align-items:center;justify-content:center;';
+    var im=document.createElement('img');
+    im.width=24;im.height=24;im.alt='';im.src=I+(muted?'audioOff.png':'audioOn.png');
+    im.style.cssText='width:24px;height:24px;display:block;pointer-events:none;';
+    mbtn.appendChild(im);mbtn._im=im;
+    mbtn.addEventListener('click',function(){
+      try{
+        window.__sfxMute(!muted);
+        play('click',0.3);
+      }catch(_){}
+    });
+    document.body.appendChild(mbtn);
+  }catch(_){}
+}
+function css(){
+  try{
+    if(document.getElementById('bcFontCss'))return;
+    var st=document.createElement('style');
+    st.id='bcFontCss';
+    st.textContent="@font-face{font-family:'Monocraft';src:url('/assets/fonts/Monocraft.ttf') format('truetype');font-display:swap;}[style*='sans-serif']{font-family:Monocraft,monospace !important;}";
+    (document.head||document.documentElement).appendChild(st);
+  }catch(_){}
+}
+function clicks(){
+  try{
+    document.addEventListener('click',function(e){
+      try{
+        var b=e.target&&e.target.closest?e.target.closest('button[title]'):null;
+        if(b&&/custom|console/.test(b.title))play('click',0.35);
+      }catch(_){}
+    },true);
+  }catch(_){}
+}
+function init(){css();icons();muteBtn();}
+function boot(){
+  try{clicks();}catch(_){}
+  try{
+    if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){setTimeout(init,250);});
+    else setTimeout(init,250);
+    setTimeout(init,1500);
+  }catch(_){}
+}
+boot();
 }catch(_){}
 })();
 </script>

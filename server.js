@@ -20,6 +20,15 @@ const STATIC = {
   '/icon-512.png': ['icon-512.png', 'image/png'],
 };
 
+// Third-party free assets (Kenney CC0 audio/icons, Monocraft OFL font).
+// Served from assets/ only; path is normalized and must stay inside it.
+const ASSET_MIME = {
+  '.ogg': 'audio/ogg',
+  '.png': 'image/png',
+  '.ttf': 'font/ttf',
+  '.txt': 'text/plain; charset=utf-8',
+};
+
 const server = http.createServer((req, res) => {
   const url = (req.url || '/').split('?')[0];
   if (url === '/' || url === '/index.html') {
@@ -44,6 +53,23 @@ const server = http.createServer((req, res) => {
       res.writeHead(200, headers);
       res.end(buf);
       return;
+    } catch (_) {}
+  }
+  if (url.startsWith('/assets/')) {
+    try {
+      const rel = decodeURIComponent(url).replace(/^[/\\]+/, '');
+      const fp = path.join(ROOT, rel);
+      const base = path.join(ROOT, 'assets') + path.sep;
+      if (fp.startsWith(base)) {
+        const buf = fs.readFileSync(fp);
+        res.writeHead(200, {
+          'Content-Type': ASSET_MIME[path.extname(fp).toLowerCase()] || 'application/octet-stream',
+          'Content-Length': buf.length,
+          'Cache-Control': 'public, max-age=86400',
+        });
+        res.end(buf);
+        return;
+      }
     } catch (_) {}
   }
   if (url === '/health') {
