@@ -608,4 +608,4 @@ Our game: 653 registered blocks (651 placeable, engine-enforced full cubes).
 (no item entities / held items / equipment / brewing). Tools we adapted: Flint and
 Steel + Water Bucket exist as engine-real tools; all other vanilla items are absent.
 
-Note 2026-10-20: +5 CUSTOM (non-vanilla) lapis-family blocks added by request: Chiseled Lapis, Lapis Pillar, Lapis Lamp (glows), Lapis Lattice, Lapis Tiles. They are ours-only, so the ours-only count above is now 43.
+Note 2026-10-20 (revised): the 5 custom lapis-family blocks and the extra placeable "Lapis Lazuli" entry were removed on request. The three lapis blocks were renamed to Lapis Block / Lapis Ore / Deepslate Lapis Ore (same ids 227/216/217), so a name-based diff lists those three names as ours-only. No other block counts changed.

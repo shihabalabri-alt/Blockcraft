@@ -232,6 +232,8 @@ so future inserts can't desync it. Flint/Water Bucket keep 650/651.
 Verified in a real Chrome: /setblock 3 72 3 lapis_lamp by NAME
 places id 654 with glow=true, the five names register in order and
 the gem is still last; zero page exceptions (textures render).
+SUPERSEDED same day: this custom family AND the placeable "Lapis
+Lazuli" entry were deleted on request - see CLEANUP below.
 
 ADDED 2026-10-20 (free asset pack - probe_assets 44/44, browser 23/23):
 Real third-party free assets, downloaded and INTEGRATED (not just
@@ -251,9 +253,25 @@ listed):
   sw.js v3 precaches the assets for offline use. Licenses and credits
   ship in assets/LICENSES.txt plus assets/licenses/*.
 
+CLEANUP 2026-10-20 (lapis, by request - probe_lapis 24/24):
+The five custom lapis blocks AND the extra placeable "Lapis Lazuli"
+entry are DELETED. The lapis family is now EXACTLY the three blocks
+you asked for, renamed as requested (ids unchanged):
+- Lapis Ore (216) - blue lapis veins, generates underground
+- Deepslate Lapis Ore (217) - same, in deepslate
+- Lapis Block (227) - the blue lapis block
+No entry named "Lapis Lazuli" exists anymore. Registry = 652 entries.
+Flint and Steel (650) and Water Bucket (651) now end the registry, so
+the old LAPIS-LAST rule is retired. World-gen code was updated to the
+new keys - a real 32x32 scan found actual lapis ore in fresh terrain.
+Lapis Core now counts only these three blocks (mined + placed).
+Real Chrome 24/24: /setblock lapis_block places id 227, catalog shows
+only 3 lapis blocks, ore found underground, zero page exceptions.
+Build stamp 2026-10-20-3.
+
 Starter template: evaluated and deliberately NOT swapped in. This is a
 working single-file React+three.js voxel engine with its own infinite
-chunked world, 653-entry block registry, multiplayer relay, commands
+chunked world, 652-entry block registry, multiplayer relay, commands
 and PWA. Replacing it with a generic voxel template would destroy those
 systems, so only compatible asset files were imported.
 
@@ -263,7 +281,7 @@ NOT added (engine has no system for them - honest list):
   person; multiplayer puppets stay engine block-textured)
 - armor, swords, bows, shields, hold animations (no equipment/combat)
 - external block texture pack (engine rasterizes its own 16x16 atlas
-  from 653 procedural textures; a mixed pack would clash visually)
+  from procedural textures; a mixed pack would clash visually)
 - crafting icons / inventory icons (no crafting, no item system)
 - trees/buildings models (terrain is generated as real blocks)
 
