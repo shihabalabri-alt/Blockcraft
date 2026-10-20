@@ -1,10 +1,10 @@
 BLOCKCRAFT (fan tribute, single file)
 =====================================
 Double-click index.html to play. No install needed.
-Internet needed once for the Pixelify Sans font (game runs fine offline after that).
+Internet needed once for the Monocraft pixel font (game runs fine offline after that).
 
 This build is the downloaded Blockcraft artifact (React single-file export,
-915,804 bytes, verified: both inline scripts pass syntax check, file ends
+1,026,022 bytes, verified: both inline scripts pass syntax check, file ends
 with a proper React root render + closing tags).
 
 Controls: see the in-game Controls / Wiki Notes screens on the title menu.
@@ -127,14 +127,14 @@ water freezes into ice in snowy biomes. Player-placed leaves also
 decay (no persistence flag in engine). No registry change.
 
 ADDED 2026-10-16 (Advancements + boom sound, probe_adv.js 22/22):
-Custom 🏆 achievements panel (bottom-left): place/mine counts,
+Custom trophy achievements panel (bottom-left): place/mine counts,
 TNT booms, trees grown, notes tuned, ice frozen, distance records
 (500m Wanderer, 5000m Marathoner). All clearly labeled custom,
 persisted, no duplicates. TNT now booms audibly (synthesized
 noise burst; confirm by ear in-game). No registry change.
 
 ADDED 2026-10-17 (Block catalog + vanilla diff, probe_ency.js 20/20):
-📖 button bottom-left opens a searchable catalog of ALL 653
+Book button bottom-left opens a searchable catalog of ALL 652
 registered blocks (live engine registry: id, name, category,
 solid/plant/liquid/glow flags, placeability). Category dropdown,
 search by name/key/id. Also: vanilla-diff.txt in the repo compares
@@ -146,7 +146,7 @@ engine renders full cubes only - no part-shapes possible), 38
 ours-only (naming variants + custom). No registry change.
 
 ADDED 2026-10-17 (Install app / PWA, probe_install.js 22/22):
-⬇️ button bottom-left: install Blockcraft as an app on any device
+Install button bottom-left: install Blockcraft as an app on any device
 (PC/Android/iPhone) - own icon, fullscreen, works OFFLINE after
 install (service worker cache). iOS uses Share > Add to Home
 Screen (no install API there). Also offers "Save game file"
@@ -180,7 +180,7 @@ always a command prompt (chat text = /say or /me). Hint line shows
 the keys under the input.
 
 ADDED 2026-10-17 (Multiplayer MVP, probe_mp.js 33/33):
-🌐 button: connect to a REAL server relay (server.js now runs a
+Globe button: connect to a REAL server relay (server.js now runs a
 dependency-free RFC6455 WebSocket on the same port, verified here
 with two live socket clients). Same link + same world seed = same
 room: your block edits sync live both ways (batched), positions
@@ -250,7 +250,7 @@ listed):
 - Monocraft pixel font (SIL OFL, assets/fonts/): applied to the
   custom panels and HUD; the browser reported it loaded.
 - server.js now serves /assets/ only (path-traversal blocked);
-  sw.js v3 precaches the assets for offline use. Licenses and credits
+  sw.js v4 precaches the assets for offline use. Licenses and credits
   ship in assets/LICENSES.txt plus assets/licenses/*.
 
 CLEANUP 2026-10-20 (lapis, by request - probe_lapis 24/24):
@@ -269,6 +269,35 @@ Real Chrome 24/24: /setblock lapis_block places id 227, catalog shows
 only 3 lapis blocks, ore found underground, zero page exceptions.
 Build stamp 2026-10-20-3.
 
+ADDED 2026-10-20 (real block textures - probe_textures 38/38, browser 40/40):
+Downloaded and integrated an actual free texture pack instead of drawing
+new art: REFI Textures by MysticTempest, CC BY-SA 4.0 (original art, not
+ripped Minecraft files). Source and license:
+  https://github.com/MysticTempest/REFI_Textures
+  assets/licenses/REFI-CC-BY-SA-4.0.txt
+  assets/textures/ATTRIBUTION.txt
+22 real 16x16 PNGs now replace the procedural tiles for:
+- Grass Block: green top; side is the pack's grass overlay baked onto its
+  dirt (the pack ships the side as an overlay, not a full face)
+- Dirt, Stone, Cobblestone, Sand, Oak Log (side+top), Oak Leaves,
+  Oak Planks
+- Coal/Iron/Gold/Diamond/Redstone/Emerald/Copper Ore
+- Lapis Block, Lapis Ore, Deepslate Lapis Ore, Deepslate (side+top)
+The engine keeps its single-file React+three.js atlas; at boot a small
+loader draws the real PNGs into the matching 16x16 atlas cells, keeps
+nearest filtering/no mipmaps, updates particle average colors, clears the
+64x64 block-icon cache and refreshes icons. Procedural tiles remain the
+fallback for every other block and if a file fails to load.
+Lapis item icon: the pack's real lapis gem PNG is shown in the custom Lapis
+Vault panel (there is still no inventory/item system).
+Grass side and copper ore are documented composites of two REFI files
+(same CC BY-SA 4.0 license); the original overlay sources are kept in
+assets/textures/source/. sw.js v4 precaches all 23 runtime texture files.
+Real Chrome: 22/22 files loaded, all 22 atlas cells pixel-compared to the
+source PNGs, grass top/side and lapis pixel checks passed, zero page
+exceptions; screenshots show the title/menu panorama, a 19-block texture
+wall and natural grass terrain. Build stamp 2026-10-20-4.
+
 Starter template: evaluated and deliberately NOT swapped in. This is a
 working single-file React+three.js voxel engine with its own infinite
 chunked world, 652-entry block registry, multiplayer relay, commands
@@ -280,9 +309,11 @@ NOT added (engine has no system for them - honest list):
 - player skin on a first-person body (no player body mesh in first
   person; multiplayer puppets stay engine block-textured)
 - armor, swords, bows, shields, hold animations (no equipment/combat)
-- external block texture pack (engine rasterizes its own 16x16 atlas
-  from procedural textures; a mixed pack would clash visually)
-- crafting icons / inventory icons (no crafting, no item system)
+- full external texture pack (only 22 curated REFI tiles replaced their
+  matching atlas cells; the other ~640 block textures stay procedural and
+  may not match the imported pack's style)
+- crafting icons / full inventory item icons (no crafting, no item system;
+  the single real lapis gem icon is used only in the Lapis Vault panel)
 - trees/buildings models (terrain is generated as real blocks)
 
 This is an original fan tribute. Not affiliated with Mojang/Microsoft.

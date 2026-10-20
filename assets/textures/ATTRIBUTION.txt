@@ -1,0 +1,56 @@
+REAL BLOCK TEXTURES - ATTRIBUTION
+=================================
+
+Pack: REFI Textures
+Author: MysticTempest (see repository contributors)
+Source: https://github.com/MysticTempest/REFI_Textures
+License: CC BY-SA 4.0 (Attribution-ShareAlike 4.0 International)
+License text: ../licenses/REFI-CC-BY-SA-4.0.txt
+
+The pack is original art created for a Minecraft-like look. No Minecraft
+game files, ripped textures or paid packs are used. The PNGs below are
+redistributed under CC BY-SA 4.0.
+
+Files shipped in this folder and the REFI source path they came from:
+
+grass_top.png             textures/default_mcl_core/soil/default_grass.png
+grass_side.png            COMPOSITE: default_mcl_core/soil/default_dirt.png
+                          + default_mcl_core/soil/default_grass_side.png
+                          (the pack's side file is an overlay; baked onto
+                          dirt so this engine's one-texture-per-face works)
+dirt.png                  textures/default_mcl_core/soil/default_dirt.png
+stone.png                 textures/default_mcl_core/stone/default_stone.png
+cobble.png                textures/default_mcl_core/stone/default_cobble.png
+sand.png                  textures/default_mcl_core/sand/default_sand.png
+oak_log.png               textures/default_mcl_core/trees/default_tree.png
+oak_log_top.png           textures/default_mcl_core/trees/default_tree_top.png
+oak_leaves.png            textures/default_mcl_core/trees/default_leaves.png
+planks.png                textures/default_mcl_core/trees/default_wood.png
+coal_ore.png              textures/default_mcl_core/minerals_ores/mcl_core_coal_ore.png
+iron_ore.png              textures/default_mcl_core/minerals_ores/mcl_core_iron_ore.png
+gold_ore.png              textures/default_mcl_core/minerals_ores/mcl_core_gold_ore.png
+diamond_ore.png           textures/default_mcl_core/minerals_ores/mcl_core_diamond_ore.png
+redstone_ore.png          textures/default_mcl_core/minerals_ores/mcl_core_redstone_ore.png
+emerald_ore.png           textures/default_mcl_core/minerals_ores/mcl_core_emerald_ore.png
+copper_ore.png            COMPOSITE: default_mcl_core/stone/default_stone.png
+                          + default_mcl_core/minerals_ores/mcl_copper_ore.png
+                          (the pack's copper file is an overlay too)
+lapis_ore.png             textures/default_mcl_core/minerals_ores/mcl_core_lapis_ore.png
+lapis_block.png           textures/default_mcl_core/minerals_ores/mcl_core_lapis_block.png
+lapis_item.png            textures/default_mcl_core/minerals_ores/mcl_core_lapis.png
+deepslate.png             textures/mcl_deepslate/mcl_deepslate.png
+deepslate_top.png         textures/mcl_deepslate/mcl_deepslate_top.png
+deepslate_lapis_ore.png   textures/mcl_deepslate/mcl_deepslate_lapis_ore.png
+
+The original overlay sources are kept for provenance at:
+source/grass_side_overlay.png
+source/copper_ore_overlay.png
+
+Integration: the game keeps its own procedural 16x16 atlas and its own
+engine. At boot these real PNGs are drawn over the matching atlas tiles
+(texture keys grass_top, grass_side, dirt, stone, cobble, sand, oak_log,
+oak_log_top, oak_leaves, planks, coal_ore, iron_ore, gold_ore,
+diamond_ore, redstone_ore, emerald_ore, copper_ore, lapis_ore,
+lapis_block, deepslate, deepslate_top, deepslate_lapis_ore). Other
+blocks stay procedural. The lapis_item.png icon is shown in the custom
+Lapis Vault panel (there is no inventory item system).

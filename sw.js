@@ -2,7 +2,7 @@
 // v2: the game document is NETWORK-FIRST (users get every new deploy
 // immediately whenever online; cache is only the offline fallback).
 // Install assets (manifest/icons) stay cache-first; offline fallback '/'.
-const CACHE = 'blockcraft-v3';
+const CACHE = 'blockcraft-v4';
 const ASSETS = [
   '/manifest.json', '/icon-192.png', '/icon-512.png',
   '/assets/fonts/Monocraft.ttf',
@@ -12,6 +12,19 @@ const ASSETS = [
   '/assets/audio/place.ogg', '/assets/audio/break.ogg',
   '/assets/audio/step1.ogg', '/assets/audio/step2.ogg',
   '/assets/audio/boom.ogg', '/assets/audio/click.ogg',
+  '/assets/textures/grass_top.png', '/assets/textures/grass_side.png',
+  '/assets/textures/dirt.png', '/assets/textures/stone.png',
+  '/assets/textures/cobble.png', '/assets/textures/sand.png',
+  '/assets/textures/oak_log.png', '/assets/textures/oak_log_top.png',
+  '/assets/textures/oak_leaves.png', '/assets/textures/planks.png',
+  '/assets/textures/coal_ore.png', '/assets/textures/iron_ore.png',
+  '/assets/textures/gold_ore.png', '/assets/textures/diamond_ore.png',
+  '/assets/textures/redstone_ore.png', '/assets/textures/emerald_ore.png',
+  '/assets/textures/copper_ore.png', '/assets/textures/lapis_ore.png',
+  '/assets/textures/lapis_block.png', '/assets/textures/deepslate.png',
+  '/assets/textures/deepslate_top.png',
+  '/assets/textures/deepslate_lapis_ore.png',
+  '/assets/textures/lapis_item.png',
 ];
 
 self.addEventListener('install', (e) => {
