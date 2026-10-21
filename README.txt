@@ -272,7 +272,7 @@ Real Chrome 24/24: /setblock lapis_block places id 227, catalog shows
 only 3 lapis blocks, ore found underground, zero page exceptions.
 Build stamp 2026-10-20-3.
 
-ADDED 2026-10-20 (real block textures - probe_textures 38/38, browser 40/40):
+ADDED 2026-10-20 (real block textures - probe_textures 38/38, browser 41/41):
 Downloaded and integrated an actual free texture pack instead of drawing
 new art: REFI Textures by MysticTempest, CC BY-SA 4.0 (original art, not
 ripped Minecraft files). Source and license:
@@ -297,9 +297,10 @@ Grass side and copper ore are documented composites of two REFI files
 (same CC BY-SA 4.0 license); the original overlay sources are kept in
 assets/textures/source/. sw.js v4 precaches all 23 runtime texture files.
 Real Chrome: 22/22 files loaded, all 22 atlas cells pixel-compared to the
-source PNGs, grass top/side and lapis pixel checks passed, zero page
-exceptions; screenshots show the title/menu panorama, a 19-block texture
-wall and natural grass terrain. Build stamp 2026-10-20-4.
+source PNGs, grass top/side and lapis pixel checks passed, lapis item icon
+loaded in the Vault panel (16x16), zero page exceptions; screenshots show
+the title/menu panorama, a 19-block texture wall and natural grass terrain.
+Build stamp 2026-10-20-4.
 
 Starter template: evaluated and deliberately NOT swapped in. This is a
 working single-file React+three.js voxel engine with its own infinite
