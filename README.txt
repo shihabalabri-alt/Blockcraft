@@ -90,7 +90,9 @@ Still not implemented (honest remaining scope)
 - Boats, minecarts and rails as rideable transport.
 - Full multiplayer survival sync: blocks and positions are shared, but
   inventories, health, mobs and containers are still local/client-side.
-- Multi-stage crop models, potions/brewing, villagers trades, shields,
+- Beds and sleeping/respawn-point setting: the current engine block registry
+  has no bed block, so this is not faked with a reskinned wool cube.
+- Multi-stage crop models, potions/brewing, villager trades, shields,
   enchanting table bookshelves and many decorative block shapes.
 - The engine still renders full cubes; stairs/slabs/doors/etc. remain
   unavailable even though their registry entries exist.
