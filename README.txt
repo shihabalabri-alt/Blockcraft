@@ -13,6 +13,92 @@ with a proper React root render + closing tags).
 Controls: see the in-game Controls / Wiki Notes screens on the title menu.
 World seed: shown on the title screen; edits auto-save (browser storage).
 
+CURRENT SURVIVAL LAYER - build 2026-10-22-6
+============================================
+The old peaceful builder now has a connected survival game on top of the
+same React + Three.js engine. New worlds start in SURVIVAL (use
+"/gamemode creative" to switch back). The layer is in bcx-*.js and is
+inlined into index.html by build-inline.js; no renderer was replaced.
+
+Start here: run start.bat (or npm start), open http://localhost:3000,
+choose Singleplayer or Create New World. E = inventory / 2x2 crafting,
+right-click a Crafting Table = 3x3 crafting, Furnace = smelting, Chest =
+27-slot storage, Enchanting Table = lapis/XP enchanting. T or / opens the
+command console. Escape closes panels and pauses. 1-9 select the hotbar.
+
+Implemented and connected
+- Data-driven item, recipe and block-drop registries. Every custom item
+  has an icon, a source or a recipe, and is visible in the inventory.
+- 63 real REFI 16x16 item sprites (CC BY-SA 4.0) plus 22 real block
+  textures, loaded into the existing atlas; procedural fallbacks remain.
+- Inventory (36 slots), 9-slot hotbar, 4 armor slots, cursor drag/drop,
+  stacking, tool durability, item tooltips and storage.
+- Health, hunger, saturation, regeneration, starvation, fall damage,
+  drowning/air, armor points, XP levels, death screen and respawn.
+  HUD shows hearts, hunger, armor shields, air bubbles, XP and level.
+- Mining tiers: wood < stone < iron < diamond. Wrong-tier picks cannot
+  break ore; drops then flow into the inventory. Placing blocks consumes
+  them in survival. Cobblestone, ores, gems, logs, plants and food drops
+  are wired.
+- Crafting: planks, sticks, tools, armor, bow/arrows, bread, torches,
+  storage blocks and reverse recipes, flint and steel, TNT, enchanting
+  table, plus recipes bridging mined resources into progression.
+- Furnaces cook food/ores with fuel and show live progress; chests persist
+  their contents; enchanting spends lapis + levels and applies real
+  enchantments; armor reduces damage and wears out.
+- Mobs: pig, cow, sheep, chicken, zombie, skeleton, creeper and spider.
+  Hostile AI chases/attacks, skeletons shoot arrows, creepers prime and
+  explode; player bow/arrows, melee, knockback, XP and mob drops work.
+- World: infinite seeded terrain, caves/ores, villages, dungeons, loot
+  chests, monster spawners, weather (clear/rain/thunder), and wheat
+  farming with growth and harvest drops.
+- Flint and Steel primes TNT; TNT has a real fuse and block-destroying
+  explosion with mob/player damage.
+- Compact redstone circuits: Blocks of Redstone, Daylight Detectors and
+  pulse Targets power Redstone Lamps; repeater/comparator blocks conduct
+  a signal up to 96 blocks; lamps swap between off and Lit Redstone Lamp
+  and drop the unlit block. Target pulses last 5 seconds of game time.
+  This is real block-state logic, but not full vanilla redstone (no
+  levers/buttons, dust, pistons, doors or timing components).
+- Save/load: world edits, player position, health, hunger, XP, inventory,
+  armor, selected slot, furnaces, chests and crops persist. Invalid IDs
+  from older saves are sanitized before chunk meshing.
+- Commands: /help, /gamemode, /give, /tp, /setblock, /fill, /time,
+  /weather, /summon, /kill, /locate, /seed and more; multiplayer block
+  edits and player avatars still use the existing relay.
+
+Lapis rule: exactly Lapis Ore, Deepslate Lapis Ore and Lapis Block are
+supported; the lapis gem item drops from both ores and is used by
+enchanting and the Lapis Block storage recipe.
+
+Tested in a real headless Chrome (build 2026-10-22-6):
+- survival probe: 49/49 checks - boot, dry spawn, HUD, 63 icons, click
+  crafting, furnace, chest, enchanting, armor, food, fall/starvation,
+  hostile AI, dungeon spawner loot, redstone lamps/wire/targets, bow,
+  death, farming, TNT, containers, reload persistence, zero page errors.
+- qbrowser regression: 41/41 checks - menus, textures, commands, audio,
+  icons, multiplayer join and service-worker reload.
+- texture/assets probes: 22/22 blocks, 63/63 items, licenses, HTTP serving.
+Screenshots: bcx_hud.png, bcx_inventory.png, bcx_furnace.png,
+bcx_death.png in the temp probe folder.
+
+Still not implemented (honest remaining scope)
+- Full vanilla redstone (wire/levers/buttons, pistons, doors, observers,
+  comparator timing and signal strength). The compact lamp/wire/target
+  circuit above is functional, as are TNT and ignition.
+- Nether/End dimensions, portals and dragon progression.
+- Boats, minecarts and rails as rideable transport.
+- Full multiplayer survival sync: blocks and positions are shared, but
+  inventories, health, mobs and containers are still local/client-side.
+- Multi-stage crop models, potions/brewing, villagers trades, shields,
+  enchanting table bookshelves and many decorative block shapes.
+- The engine still renders full cubes; stairs/slabs/doors/etc. remain
+  unavailable even though their registry entries exist.
+
+Historical notes below record earlier asset/engine batches. Where an old
+note says "no inventory/item/combat system", the survival layer above
+supersedes it.
+
 Previous hand-built clone (Three.js voxel engine, stages 1-7 + End + bosses +
 fortress batch, all probes green) is preserved untouched at:
   C:\Users\Shiha\minecraft-old-backup\
@@ -300,7 +386,8 @@ Real Chrome: 22/22 files loaded, all 22 atlas cells pixel-compared to the
 source PNGs, grass top/side and lapis pixel checks passed, lapis item icon
 loaded in the Vault panel (16x16), zero page exceptions; screenshots show
 the title/menu panorama, a 19-block texture wall and natural grass terrain.
-Build stamp 2026-10-20-4.
+Build stamp 2026-10-22-6 (this 2026-10-20 texture section is historical;
+the survival layer above added 63 item sprites and the full item system).
 
 Starter template: evaluated and deliberately NOT swapped in. This is a
 working single-file React+three.js voxel engine with its own infinite
@@ -308,17 +395,21 @@ chunked world, 652-entry block registry, multiplayer relay, commands
 and PWA. Replacing it with a generic voxel template would destroy those
 systems, so only compatible asset files were imported.
 
-NOT added (engine has no system for them - honest list):
-- mob/animal models, skins, animations (game has no mob system)
-- player skin on a first-person body (no player body mesh in first
-  person; multiplayer puppets stay engine block-textured)
-- armor, swords, bows, shields, hold animations (no equipment/combat)
-- full external texture pack (only 22 curated REFI tiles replaced their
-  matching atlas cells; the other ~640 block textures stay procedural and
-  may not match the imported pack's style)
-- crafting icons / full inventory item icons (no crafting, no item system;
-  the single real lapis gem icon is used only in the Lapis Vault panel)
-- trees/buildings models (terrain is generated as real blocks)
+HISTORICAL LIMITS (2026-10-20 list; superseded where noted):
+- mob/animal models, skins, animations - ADDED 2026-10-21: blocky
+  engine-mesh mobs with tinted parts and simple leg animation.
+- player skin on a first-person body - STILL ABSENT (first-person hand
+  only; multiplayer puppets remain engine block-textured).
+- armor, swords, bows, shields, hold animations - ADDED 2026-10-21 for
+  armor/melee/bow/arrow; shields and animated holds are still absent.
+- full external texture pack - STILL PARTIAL: 22 curated REFI block
+  textures + 63 item sprites replace matching atlas/icon slots; other
+  blocks keep procedural textures.
+- crafting icons / full inventory item icons - ADDED 2026-10-21: all 63
+  custom item icons are real REFI sprites; every registered custom item
+  has an icon.
+- trees/buildings models - villages/dungeons are real block structures;
+  there are no separate model assets.
 
 This is an original fan tribute. Not affiliated with Mojang/Microsoft.
 Tell me CONTINUE + what is wrong/missing and I will add it next.

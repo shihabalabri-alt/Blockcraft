@@ -42,6 +42,72 @@ deepslate.png             textures/mcl_deepslate/mcl_deepslate.png
 deepslate_top.png         textures/mcl_deepslate/mcl_deepslate_top.png
 deepslate_lapis_ore.png   textures/mcl_deepslate/mcl_deepslate_lapis_ore.png
 
+Survival-layer item sprites in items/ (all 16x16 REFI PNGs):
+
+items/stick.png            textures/default_mcl_core/default_stick.png
+items/coal.png             textures/default_mcl_core/minerals_ores/default_coal_lump.png
+items/charcoal.png         textures/default_mcl_core/mcl_core_charcoal.png
+items/raw_iron.png         textures/default_mcl_core/minerals_ores/mcl_raw_ores_raw_iron.png
+items/raw_gold.png         textures/default_mcl_core/minerals_ores/mcl_raw_ores_raw_gold.png
+items/raw_copper.png       textures/default_mcl_core/minerals_ores/mcl_copper_raw.png
+items/iron_ingot.png       textures/default_mcl_core/minerals_ores/default_steel_ingot.png
+items/gold_ingot.png       textures/default_mcl_core/minerals_ores/default_gold_ingot.png
+items/copper_ingot.png     textures/default_mcl_core/minerals_ores/mcl_copper_ingot.png
+items/diamond.png          textures/default_mcl_core/minerals_ores/default_diamond.png
+items/emerald.png          textures/default_mcl_core/minerals_ores/mcl_core_emerald.png
+items/redstone.png         textures/redstone/mesecons_wires/redstone_redstone_dust.png
+items/lapis.png            textures/default_mcl_core/minerals_ores/mcl_core_lapis.png
+items/flint.png            textures/default_mcl_core/stone/default_flint.png
+items/apple.png            textures/default_mcl_core/plants/default_apple.png
+items/bread.png            textures/farming_mcl_farming/farming_bread.png
+items/wheat.png            textures/farming_mcl_farming/farming_wheat.png
+items/wheat_seeds.png      textures/farming_mcl_farming/mcl_farming_wheat_seeds.png
+items/leather.png          textures/mcl_mobitems/mcl_mobitems_leather.png
+items/beef.png             textures/mcl_mobitems/mcl_mobitems_beef_raw.png
+items/cooked_beef.png      textures/mcl_mobitems/mcl_mobitems_beef_cooked.png
+items/porkchop.png         textures/mcl_mobitems/mcl_mobitems_porkchop_raw.png
+items/cooked_porkchop.png  textures/mcl_mobitems/mcl_mobitems_porkchop_cooked.png
+items/chicken.png          textures/mcl_mobitems/mcl_mobitems_chicken_raw.png
+items/cooked_chicken.png   textures/mcl_mobitems/mcl_mobitems_chicken_cooked.png
+items/mutton.png           textures/mcl_mobitems/mcl_mobitems_mutton_raw.png
+items/cooked_mutton.png    textures/mcl_mobitems/mcl_mobitems_mutton_cooked.png
+items/rotten_flesh.png     textures/mcl_mobitems/mcl_mobitems_rotten_flesh.png
+items/feather.png          textures/mcl_mobitems/mcl_mobitems_feather.png
+items/bone.png             textures/mcl_mobitems/mcl_mobitems_bone.png
+items/string.png           textures/mcl_mobitems/mcl_mobitems_string.png
+items/gunpowder.png        textures/mcl_mobitems/default_gunpowder.png
+items/arrow.png            textures/mcl_bows/mcl_bows_arrow_inv.png
+items/bow.png              textures/mcl_bows/mcl_bows_bow.png
+items/flint_and_steel.png  textures/fire_mcl_fire/mcl_fire_flint_and_steel.png
+items/wooden_pickaxe.png   textures/default_mcl_core/tools/default_tool_woodpick.png
+items/stone_pickaxe.png    textures/default_mcl_core/tools/default_tool_stonepick.png
+items/iron_pickaxe.png     textures/default_mcl_core/tools/default_tool_steelpick.png
+items/diamond_pickaxe.png  textures/default_mcl_core/tools/default_tool_diamondpick.png
+items/wooden_axe.png       textures/default_mcl_core/tools/default_tool_woodaxe.png
+items/stone_axe.png        textures/default_mcl_core/tools/default_tool_stoneaxe.png
+items/iron_axe.png         textures/default_mcl_core/tools/default_tool_steelaxe.png
+items/diamond_axe.png      textures/default_mcl_core/tools/default_tool_diamondaxe.png
+items/wooden_shovel.png    textures/default_mcl_core/tools/default_tool_woodshovel.png
+items/stone_shovel.png     textures/default_mcl_core/tools/default_tool_stoneshovel.png
+items/iron_shovel.png      textures/default_mcl_core/tools/default_tool_steelshovel.png
+items/diamond_shovel.png   textures/default_mcl_core/tools/default_tool_diamondshovel.png
+items/wooden_sword.png     textures/default_mcl_core/tools/default_tool_woodsword.png
+items/stone_sword.png      textures/default_mcl_core/tools/default_tool_stonesword.png
+items/iron_sword.png       textures/default_mcl_core/tools/default_tool_steelsword.png
+items/diamond_sword.png    textures/default_mcl_core/tools/default_tool_diamondsword.png
+items/leather_helmet.png   textures/mcl_armor/mcl_armor_inv_helmet_leather.png
+items/leather_chestplate.png textures/mcl_armor/mcl_armor_inv_chestplate_leather.png
+items/leather_leggings.png textures/mcl_armor/mcl_armor_inv_leggings_leather.png
+items/leather_boots.png    textures/mcl_armor/mcl_armor_inv_boots_leather.png
+items/iron_helmet.png      textures/mcl_armor/mcl_armor_inv_helmet_iron.png
+items/iron_chestplate.png  textures/mcl_armor/mcl_armor_inv_chestplate_iron.png
+items/iron_leggings.png    textures/mcl_armor/mcl_armor_inv_leggings_iron.png
+items/iron_boots.png       textures/mcl_armor/mcl_armor_inv_boots_iron.png
+items/diamond_helmet.png   textures/mcl_armor/mcl_armor_inv_helmet_diamond.png
+items/diamond_chestplate.png textures/mcl_armor/mcl_armor_inv_chestplate_diamond.png
+items/diamond_leggings.png textures/mcl_armor/mcl_armor_inv_leggings_diamond.png
+items/diamond_boots.png    textures/mcl_armor/mcl_armor_inv_boots_diamond.png
+
 The original overlay sources are kept for provenance at:
 source/grass_side_overlay.png
 source/copper_ore_overlay.png
@@ -52,5 +118,6 @@ engine. At boot these real PNGs are drawn over the matching atlas tiles
 oak_log_top, oak_leaves, planks, coal_ore, iron_ore, gold_ore,
 diamond_ore, redstone_ore, emerald_ore, copper_ore, lapis_ore,
 lapis_block, deepslate, deepslate_top, deepslate_lapis_ore). Other
-blocks stay procedural. The lapis_item.png icon is shown in the custom
-Lapis Vault panel (there is no inventory item system).
+blocks stay procedural. The items/ sprites are used by the survival
+inventory, hotbar, crafting results, chests, furnaces, drops and the
+Lapis item counter. Block icons are rendered from the patched atlas.

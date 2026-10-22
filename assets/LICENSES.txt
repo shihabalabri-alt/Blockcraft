@@ -24,14 +24,17 @@ THIRD-PARTY ASSETS USED BY BLOCKCRAFT
    Files: assets/textures/*.png (grass, dirt, stone, cobble, sand,
           oak log/leaves/planks, coal/iron/gold/diamond/redstone/
           emerald/copper/lapis ores, lapis block, deepslate, deepslate
-          lapis ore, lapis item icon).
+          lapis ore, lapis item icon) and assets/textures/items/*.png
+          (63 tool, armor, ingot, raw ore, food, mob-drop, bow/arrow
+          and flint-and-steel sprites).
    grass_side.png is composited from the pack's default_dirt.png and
-   its grass side overlay (same CC BY-SA 4.0 license); the overlay
-   source is kept in assets/textures/source/grass_side_overlay.png.
+   its grass side overlay (same CC BY-SA 4.0 license); copper_ore.png
+   is composited from the pack's stone/copper sources. The original
+   overlay sources are kept in assets/textures/source/.
    License text: assets/licenses/REFI-CC-BY-SA-4.0.txt
    Attribution: assets/textures/ATTRIBUTION.txt
-   The PNG files are redistributed unmodified (except grass_side.png,
-   which is the documented two-texture composite).
+   The PNG files are redistributed unmodified except for the two
+   documented composites (grass_side.png and copper_ore.png).
 
 No paid, ripped or Minecraft-copyrighted assets are included.
 Most other block textures and sounds in the game are still generated
